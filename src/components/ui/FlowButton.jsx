@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function FlowButton({ text = "Modern Button", className = "", ...props }) {
   return (
-    <button {...props} className={`group relative flex items-center justify-center gap-1 overflow-hidden rounded-full border border-primary/40 bg-transparent px-8 py-3 font-label text-xs tracking-widest text-primary cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-on-primary active:scale-[0.98] ${className}`}>
+    <button {...props} className={`group relative flex items-center justify-center gap-1 overflow-hidden rounded-full border border-primary/40 bg-transparent px-5 py-2.5 md:px-8 md:py-3 font-label text-[10px] md:text-xs tracking-widest text-primary cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-on-primary active:scale-[0.98] ${className}`}>
       {/* Left arrow (arr-2) */}
       <ArrowRight 
         className="absolute w-4 h-4 left-[-25%] stroke-primary fill-none z-[9] group-hover:left-4 group-hover:stroke-on-primary transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
