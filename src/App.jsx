@@ -1,0 +1,171 @@
+import React from 'react';
+import TextReveal from './components/ui/TextReveal';
+import Testimonials from './components/ui/Testimonials';
+import SignatureRituals from './components/ui/SignatureRituals';
+import ZoomParallaxSection from './components/ui/ZoomParallaxSection';
+import CoreValues from './components/ui/CoreValues';
+import Navbar from './components/ui/Navbar';
+import FeaturedTreatments from './components/ui/FeaturedTreatments';
+import { FlowButton } from './components/ui/FlowButton';
+import { motion } from 'motion/react';
+
+function App() {
+  return (
+    <div className="bg-surface text-on-surface font-body selection:bg-primary/30">
+      <Navbar />
+
+      <main className="pt-0">
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center justify-center">
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <img 
+              alt="Luxury Spa Interior" 
+              className="w-full h-full object-cover brightness-[0.4] scale-105" 
+              src="/images/2024-07-30 (8).jpg" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-surface/20 via-transparent to-surface"></div>
+          </div>
+          <div className="relative z-10 container mx-auto px-10 text-center max-w-4xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
+              className="label-md uppercase tracking-[0.3em] text-primary mb-6 block" style={{ letterSpacing: '0.15rem' }}
+            >
+              SERENITY & REJUVENATION
+            </motion.span>
+            <div className="font-headline text-5xl md:text-7xl lg:text-8xl text-on-surface leading-tight tracking-tight mb-8">
+              <TextReveal word="Welcome to" />
+              <TextReveal word="Luxury Spa" className="italic" delayOffset={10} />
+            </div>
+            <motion.p 
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
+              className="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-12"
+            >
+              Welcome to International Luxury Spa, where serenity and rejuvenation await. Our expert team offers the finest treatments to relax your body and mind. Discover a world of luxury and wellness designed to refresh and revitalize you.
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.5 }}
+              className="flex flex-col md:flex-row items-center justify-center gap-6"
+            >
+              <FlowButton text="EXPLORE SANCTUARY" />
+              <FlowButton text="VIEW TREATMENTS" />
+            </motion.div>
+          </div>
+          <motion.div 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2.2 }}
+            className="absolute bottom-10 left-10 hidden md:flex flex-col gap-4"
+          >
+            <div className="w-[1px] h-24 bg-gradient-to-b from-transparent to-primary/40"></div>
+            <span className="text-[10px] tracking-[0.4em] uppercase text-on-surface-variant rotate-180" style={{ writingMode: 'vertical-lr' }}>SCROLL TO DISCOVER</span>
+          </motion.div>
+        </section>
+
+        {/* Core Values */}
+        <CoreValues />
+
+        {/* Our Philosophy (Asymmetric Layout) */}
+        <section className="py-32 px-10 bg-surface overflow-hidden">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }}
+              className="md:col-span-5 relative"
+            >
+              <span className="label-md uppercase tracking-[0.2em] text-tertiary mb-4 block">ABOUT US</span>
+              <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface leading-[1.1] mb-10">
+                Revitalize with Our <br/> <span className="italic">Spa Services</span>
+              </h2>
+              <p className="font-body text-lg text-on-surface-variant leading-relaxed mb-8">
+                Welcome to International Luxury Spa, where true serenity and rejuvenation await. We offer a sanctuary of relaxation, making us an ideal choice for your wellness journey. Our expert therapists provide a range of services designed for deep relaxation and holistic wellness.
+              </p>
+              <p className="font-body text-lg text-on-surface-variant leading-relaxed italic mb-12">
+                "In the depth of winter, I finally learned that within me there lay an invincible summer."
+              </p>
+              <a className="inline-flex items-center gap-3 text-primary font-label text-xs tracking-widest border-b border-primary/30 pb-2 hover:border-primary transition-all" href="#">
+                READ OUR MANIFESTO <span className="material-symbols-outlined text-sm">east</span>
+              </a>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="md:col-span-6 md:col-start-7 relative"
+            >
+              <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container shadow-2xl">
+                <img 
+                  alt="Serene Spa Interior" 
+                  className="w-full h-full object-cover" 
+                  src="/images/2024-10-22.jpg" 
+                  data-alt="Sunlit minimalist spa room" 
+                />
+              </div>
+              {/* Decorative Floating Element */}
+              <div className="absolute -bottom-10 -left-10 bg-tertiary-container p-8 rounded-xl hidden lg:block">
+                <span className="material-symbols-outlined text-4xl text-on-tertiary-container mb-4 block">nature</span>
+                <h4 className="font-headline text-xl text-on-tertiary-container mb-2">Organic Essence</h4>
+                <p className="font-body text-sm text-on-tertiary-container/80 max-w-[180px]">Bespoke oils crafted from wild-harvested botanicals.</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Featured Treatments (The "Immersive Gallery") */}
+        <FeaturedTreatments />
+
+        {/* Signature Rituals */}
+        <SignatureRituals />
+
+        {/* Zoom Parallax Gallery */}
+        <ZoomParallaxSection />
+
+        {/* Testimonials */}
+        <Testimonials />
+
+        {/* Newsletter / CTA Section */}
+        <section className="py-24 px-10 overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, y: 50, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }}
+            className="container mx-auto bg-surface-container rounded-xl p-12 md:p-24 relative overflow-hidden flex flex-col items-center text-center"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[100px] rounded-full"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-tertiary/5 blur-[120px] rounded-full"></div>
+            <h2 className="font-headline text-3xl md:text-5xl text-on-surface mb-6">Join the Inner Circle</h2>
+            <p className="font-body text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+              Receive exclusive access to our seasonal rituals, wellness journals, and priority booking for retreat weekends.
+            </p>
+            <div className="w-full max-w-md flex flex-col md:flex-row gap-4">
+              <input 
+                className="flex-grow bg-surface-container-lowest border border-outline-variant/30 px-6 py-4 rounded-full text-on-surface font-label text-xs tracking-widest focus:outline-none focus:border-primary/50 transition-all" 
+                placeholder="YOUR EMAIL ADDRESS" 
+                type="email"
+              />
+              <FlowButton text="SUBSCRIBE" />
+            </div>
+          </motion.div>
+        </section>
+      </main>
+
+      {/* Footer from JSON */}
+      <motion.footer 
+        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
+        className="bg-[#0d0f0d] w-full py-20 px-10 mt-20 tonal-shift"
+      >
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 w-full border-t border-[#454843]/20 pt-12">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[60px] w-auto object-contain brightness-0 invert opacity-80" />
+            <span className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1]">© 2024 INTERNATIONAL LUXURY SPA. ALL RIGHTS RESERVED.</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-8">
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">PHILOSOPHY</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">TREATMENTS</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">JOURNAL</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">CONTACT</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">PRIVACY</a>
+          </div>
+          <div className="flex gap-6">
+            <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
+            <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
+          </div>
+        </div>
+      </motion.footer>
+    </div>
+  );
+}
+
+export default App;
