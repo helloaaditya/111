@@ -42,9 +42,11 @@ export default {
         "inverse-primary": "#F8D48E"
       },
       fontFamily: {
-        "headline": ["Noto Serif", "serif"],
-        "body": ["Manrope", "sans-serif"],
-        "label": ["Manrope", "sans-serif"]
+        "headline": ["Cormorant Garamond", "serif"],
+        "body": ["DM Sans", "sans-serif"],
+        "cormorant": ["Cormorant Garamond", "serif"],
+        "dmsans": ["DM Sans", "sans-serif"],
+        "manrope": ["Manrope", "sans-serif"]
       },
       borderRadius: {
         "DEFAULT": "0.125rem", 

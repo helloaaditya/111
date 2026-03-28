@@ -3,9 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Prevent horizontal overflow/scroll on all devices */
+/* Prevent horizontal overflow at viewport level only */
+/* IMPORTANT: Do NOT set overflow on body — it breaks position:sticky */
+html {
+  overflow-x: clip;
+}
+
 html, body {
-  overflow-x: hidden;
   max-width: 100%;
 }
 

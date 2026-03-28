@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Menu({ trigger, children, align = "left", showChevron = true }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,23 +39,37 @@ export function Menu({ trigger, children, align = "left", showChevron = true }) 
   )
 }
 
-export function MenuItem({ children, onClick, disabled = false, isActive = false }) {
+export function MenuItem({ children, onClick, href, disabled = false, isActive = false }) {
+  const baseClasses = `relative flex items-center justify-end w-full h-full px-5 group whitespace-nowrap select-none outline-none
+    ${disabled ? "text-on-surface-variant/40 cursor-not-allowed" : "text-on-surface hover:text-primary"}
+    ${isActive ? "text-primary font-bold" : "font-semibold"}
+    transition-colors duration-200 cursor-pointer
+  `;
+  
+  const content = (
+    <span className="font-label text-xs tracking-widest uppercase origin-right pr-1 pointer-events-none">
+      {children}
+    </span>
+  );
+
+  if (href) {
+    return (
+      <Link to={href} className={baseClasses} onClick={onClick}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
     <button
-      className={`relative flex items-center justify-end w-full h-full px-5 group whitespace-nowrap cursor-pointer select-none outline-none
-        ${disabled ? "text-on-surface-variant/40 cursor-not-allowed" : "text-on-surface hover:text-primary"}
-        ${isActive ? "text-primary font-bold" : "font-semibold"}
-        transition-colors duration-200
-      `}
+      className={baseClasses}
       role="menuitem"
       onClick={onClick}
       disabled={disabled}
     >
-      <span className="font-label text-xs tracking-widest uppercase origin-right pr-1 pointer-events-none">
-        {children}
-      </span>
+      {content}
     </button>
-  )
+  );
 }
 
 export function MenuContainer({ children }) {

@@ -6,19 +6,23 @@ import { ZoomParallax } from "./zoom-parallax";
 export default function ZoomParallaxSection() {
 
 	useEffect(() => {
-        const lenis = new Lenis()
-       
-        function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-        }
+		const lenis = new Lenis({
+			duration: 1.2,
+			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			smooth: true,
+		});
 
-        requestAnimationFrame(raf)
-        
-        return () => {
-            lenis.destroy();
-        }
-    }, [])
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+
+		return () => {
+			lenis.destroy();
+		};
+	}, []);
 
 	const images = [
 		{ src: '/images/2024-10-22.jpg', alt: 'Authentic Spa Interior' },
@@ -31,8 +35,8 @@ export default function ZoomParallaxSection() {
 	];
 
 	return (
-		<main className="w-full bg-gradient-to-b from-background to-surface-variant relative z-10 py-8 md:py-10">
-			<div className="relative flex min-h-[25vh] md:min-h-[30vh] py-6 flex-col items-center justify-center px-10">
+		<section className="w-full relative">
+			<div className="flex min-h-[25vh] md:min-h-[30vh] py-6 flex-col items-center justify-center px-10 bg-gradient-to-b from-background to-surface-variant">
 				{/* Radial spotlight */}
 				<div
 					aria-hidden="true"
@@ -43,10 +47,8 @@ export default function ZoomParallaxSection() {
 					Step Into <span className="italic">Serenity</span>
 				</h2>
 			</div>
-			<div className="border-t border-b border-primary/20">
-			    <ZoomParallax images={images} />
-			</div>
-			<div className="h-[8vh] md:h-[12vh]"/>
-		</main>
+			<ZoomParallax images={images} />
+		</section>
 	);
 }
+
