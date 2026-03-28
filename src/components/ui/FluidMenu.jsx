@@ -66,31 +66,31 @@ export function MenuContainer({ children }) {
   }
 
   return (
-    <div className="relative flex flex-col items-end w-12" data-expanded={isExpanded}>
+    <div className="relative shrink-0" data-expanded={isExpanded}>
       {/* Container for all items */}
-      <div className="relative w-full flex justify-end">
+      <div className="relative flex justify-end">
         
         {/* First item (Trigger) - always visible, on top */}
         <div 
-          className="relative w-10 h-10 md:w-12 md:h-12 bg-transparent hover:bg-black/5 flex items-center justify-center cursor-pointer rounded-full z-50 transition-all active:scale-95"
+          className="relative w-10 h-10 bg-transparent hover:bg-black/5 flex items-center justify-center cursor-pointer rounded-full z-[60] transition-all active:scale-95 shrink-0"
           onClick={handleToggle}
         >
           {childrenArray[0]}
         </div>
 
-        {/* Other items - expanding vertically downwards */}
+        {/* Other items - expanding vertically downwards, anchored right */}
         {childrenArray.slice(1).map((child, index) => {
           const yOffset = isExpanded ? (index + 1) * 52 : 0;
           
           return (
           <div 
             key={index} 
-            className="absolute top-0 right-0 h-10 md:h-12 w-auto min-w-[140px] bg-surface-container border border-primary/20 rounded-full flex items-center justify-end shadow-md overflow-hidden"
+            className="fixed right-4 h-10 w-auto min-w-[130px] max-w-[150px] bg-white/80 backdrop-blur border border-primary/20 rounded-full flex items-center justify-end shadow-lg overflow-hidden"
             style={{
-              transform: `translateY(${yOffset}px)`,
+              top: `calc(1rem + 40px + ${yOffset}px)`,
               opacity: isExpanded ? 1 : 0,
-              zIndex: 40 - index,
-              transition: `transform ${isExpanded ? '400ms' : '300ms'} cubic-bezier(0.34, 1.56, 0.64, 1),
+              zIndex: isExpanded ? 55 - index : -1,
+              transition: `top ${isExpanded ? '400ms' : '300ms'} cubic-bezier(0.34, 1.56, 0.64, 1),
                          opacity ${isExpanded ? '300ms' : '350ms'}`,
               pointerEvents: isExpanded ? 'auto' : 'none'
             }}

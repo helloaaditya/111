@@ -48,7 +48,7 @@ export default function Navbar() {
         </div>
         
         {/* Mobile Fluid Menu Container */}
-        <div className="block sm:hidden -mr-2">
+        <div className="block sm:hidden shrink-0">
           <MenuContainer>
             {/* Trigger (First Child) */}
             <div className="relative w-6 h-6 flex items-center justify-center outline-none select-none">

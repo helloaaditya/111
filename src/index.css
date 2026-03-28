@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent horizontal overflow/scroll on all devices */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 @layer utilities {
     .text-glow {
         text-shadow: 0 0 20px rgba(233, 193, 118, 0.3);
