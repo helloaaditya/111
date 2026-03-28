@@ -23,7 +23,7 @@ const rituals = [
 
 export default function SignatureRituals() {
   return (
-    <section className="py-32 bg-[#0d0f0d] overflow-hidden">
+    <section className="py-32 bg-gradient-to-b from-surface-variant to-background overflow-hidden">
       <div className="container mx-auto px-10">
         
         <motion.div 

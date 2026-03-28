@@ -4,24 +4,11 @@ import { ArrowRight } from 'lucide-react';
 
 export function FlowButton({ text = "Modern Button", className = "", ...props }) {
   return (
-    <button {...props} className={`group relative flex items-center justify-center gap-1 overflow-hidden rounded-full border border-primary/40 bg-transparent px-5 py-2.5 md:px-8 md:py-3 font-label text-[10px] md:text-xs tracking-widest text-primary cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-on-primary active:scale-[0.98] ${className}`}>
-      {/* Left arrow (arr-2) */}
-      <ArrowRight 
-        className="absolute w-4 h-4 left-[-25%] stroke-primary fill-none z-[9] group-hover:left-4 group-hover:stroke-on-primary transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
-      />
-
-      {/* Text */}
-      <span className="relative z-[1] -translate-x-3 group-hover:translate-x-3 transition-all duration-700 ease-out whitespace-nowrap">
+    <button {...props} className={`group relative flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-[#E9C176] px-6 py-3 md:px-8 md:py-4 font-label text-[10px] md:text-xs tracking-widest text-white shadow-sm hover:shadow-md cursor-pointer transition-all duration-500 ease-out hover:-translate-y-[2px] active:scale-[0.98] ${className}`}>
+      <span className="relative z-[1] whitespace-nowrap">
         {text}
       </span>
-
-      {/* Circle */}
-      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-[50%] opacity-0 group-hover:w-[350px] group-hover:h-[350px] group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] pointer-events-none"></span>
-
-      {/* Right arrow (arr-1) */}
-      <ArrowRight 
-        className="absolute w-4 h-4 right-4 stroke-primary fill-none z-[9] group-hover:right-[-25%] group-hover:stroke-on-primary transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
-      />
+      <ArrowRight className="w-4 h-4 stroke-white fill-none transition-transform duration-500 group-hover:translate-x-1" />
     </button>
   );
 }

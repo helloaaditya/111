@@ -31,7 +31,7 @@ export default function ZoomParallaxSection() {
 	];
 
 	return (
-		<main className="w-full bg-[#0d0f0d] relative z-10 py-10">
+		<main className="w-full bg-gradient-to-b from-background to-surface-variant relative z-10 py-24">
 			<div className="relative flex h-[50vh] flex-col items-center justify-center px-10">
 				{/* Radial spotlight */}
 				<div

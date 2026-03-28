@@ -17,13 +17,13 @@ function App() {
       <main className="pt-0">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center">
-          <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden bg-surface">
             <img 
               alt="Luxury Spa Interior" 
-              className="w-full h-full object-cover brightness-[0.4] scale-105" 
+              className="w-full h-full object-cover opacity-30 scale-105 saturate-50" 
               src="/images/2024-07-30 (8).jpg" 
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-surface/20 via-transparent to-surface"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-surface/60 via-transparent to-surface"></div>
           </div>
           <div className="relative z-10 container mx-auto px-10 text-center max-w-4xl">
             <motion.span 
@@ -144,23 +144,23 @@ function App() {
       {/* Footer from JSON */}
       <motion.footer 
         initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
-        className="bg-[#0d0f0d] w-full py-20 px-10 mt-20 tonal-shift"
+        className="bg-gradient-to-b from-surface to-background w-full py-24 px-10 mt-20 tonal-shift"
       >
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 w-full border-t border-[#454843]/20 pt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 w-full border-t border-outline/20 pt-12">
           <div className="flex flex-col items-center md:items-start gap-4">
-            <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[60px] w-auto object-contain brightness-0 invert opacity-80" />
-            <span className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1]">© 2024 INTERNATIONAL LUXURY SPA. ALL RIGHTS RESERVED.</span>
+            <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[60px] w-auto object-contain opacity-80" />
+            <span className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant">© 2024 INTERNATIONAL LUXURY SPA. ALL RIGHTS RESERVED.</span>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">PHILOSOPHY</a>
-            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">TREATMENTS</a>
-            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">JOURNAL</a>
-            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">CONTACT</a>
-            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-[#c5c7c1] hover:text-[#e9c176] transition-all" href="#">PRIVACY</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" href="#">PHILOSOPHY</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" href="#">TREATMENTS</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" href="#">JOURNAL</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" href="#">CONTACT</a>
+            <a className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" href="#">PRIVACY</a>
           </div>
           <div className="flex gap-6">
-            <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
-            <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
+            <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
+            <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
           </div>
         </div>
       </motion.footer>

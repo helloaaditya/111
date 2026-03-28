@@ -31,15 +31,15 @@ export default function Navbar() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50 flex justify-center pointer-events-none"
     >
-      <nav className="pointer-events-auto w-full max-w-6xl bg-[#121412]/85 backdrop-blur-xl flex justify-between items-center px-4 md:px-8 py-2 md:py-2.5 rounded-full border border-white/10 shadow-2xl transition-all">
+      <nav className="pointer-events-auto w-full max-w-6xl bg-white/60 backdrop-blur-md flex justify-between items-center px-4 md:px-8 py-2 md:py-2.5 rounded-full border border-black/5 shadow-2xl transition-all">
         <div className="flex items-center gap-4">
           <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[40px] md:h-[65px] -my-1 w-auto object-contain drop-shadow-md origin-left pl-1" />
         </div>
         <div className="hidden md:flex items-center gap-10">
-          <a className="text-[#e9c176] font-semibold font-label text-[10px] tracking-widest hover:opacity-90 transition-opacity duration-300" href="#">HOME</a>
-          <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors font-label text-[10px] tracking-widest" href="#">TREATMENTS</a>
-          <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors font-label text-[10px] tracking-widest" href="#">PHILOSOPHY</a>
-          <a className="text-[#c5c7c1] hover:text-[#e9c176] transition-colors font-label text-[10px] tracking-widest" href="#">JOURNAL</a>
+          <a className="text-primary font-semibold font-label text-[10px] tracking-widest hover:opacity-90 transition-opacity duration-300" href="#">HOME</a>
+          <a className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest" href="#">TREATMENTS</a>
+          <a className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest" href="#">PHILOSOPHY</a>
+          <a className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest" href="#">JOURNAL</a>
         </div>
         <div className="hidden sm:block">
           <FlowButton text="BOOK APPOINTMENT" />
