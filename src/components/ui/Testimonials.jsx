@@ -65,14 +65,14 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section className="py-32 bg-surface relative">
+    <section className="py-16 md:py-20 bg-surface relative">
       <div className="container mx-auto px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-16"
+          className="flex flex-col items-center justify-center max-w-2xl mx-auto mb-10"
         >
           <span className="material-symbols-outlined text-primary text-4xl mb-6" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
           <span className="label-md uppercase tracking-[0.2em] text-primary mb-4 block text-center">CLIENT EXPERIENCES</span>
@@ -82,10 +82,10 @@ export default function Testimonials() {
         </motion.div>
 
         {/* The scrolling columns with custom mask to fade out standardly */}
-        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[600px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={35} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={45} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={30} />
+        <div className="flex justify-center gap-4 md:gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[600px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn testimonials={secondColumn} duration={20} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={12} />
         </div>
       </div>
     </section>

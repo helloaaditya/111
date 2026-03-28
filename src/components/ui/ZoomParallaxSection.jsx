@@ -31,8 +31,8 @@ export default function ZoomParallaxSection() {
 	];
 
 	return (
-		<main className="w-full bg-gradient-to-b from-background to-surface-variant relative z-10 py-24">
-			<div className="relative flex h-[50vh] flex-col items-center justify-center px-10">
+		<main className="w-full bg-gradient-to-b from-background to-surface-variant relative z-10 py-8 md:py-10">
+			<div className="relative flex min-h-[25vh] md:min-h-[30vh] py-6 flex-col items-center justify-center px-10">
 				{/* Radial spotlight */}
 				<div
 					aria-hidden="true"
@@ -46,7 +46,7 @@ export default function ZoomParallaxSection() {
 			<div className="border-t border-b border-primary/20">
 			    <ZoomParallax images={images} />
 			</div>
-			<div className="h-[20vh]"/>
+			<div className="h-[8vh] md:h-[12vh]"/>
 		</main>
 	);
 }

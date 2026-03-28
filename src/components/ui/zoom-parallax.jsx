@@ -47,10 +47,10 @@ export function ZoomParallax({ images }) {
 
 			{/* Mobile: static masonry-style grid, zero parallax overhead */}
 			<div className="block md:hidden px-4 py-8 grid grid-cols-2 gap-3">
-				{images.slice(0, 6).map(({ src, alt }, index) => (
+				{images.slice(0, 6).map(({ src, alt }, index, array) => (
 					<div
 						key={index}
-						className={`overflow-hidden rounded-2xl ${index === 0 ? 'col-span-2 h-52' : 'h-36'}`}
+						className={`overflow-hidden rounded-2xl ${index === 0 || index === array.length - 1 ? 'col-span-2 h-52' : 'h-36'}`}
 					>
 						<img
 							src={src}

@@ -66,7 +66,7 @@ const Track = () => (
 
 export default function FeaturedTreatments() {
   return (
-    <section className="py-24 md:py-32 bg-surface-container-lowest overflow-hidden">
+    <section className="py-16 md:py-24 bg-surface overflow-hidden">
       <div className="px-10 mb-16 flex flex-col md:flex-row justify-between items-end gap-6 container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }}
@@ -82,8 +82,8 @@ export default function FeaturedTreatments() {
         className="relative w-full overflow-hidden flex hide-scrollbar"
       >
         {/* Gradient fades for the edges of the screen */}
-        <div className="absolute pointer-events-none inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-surface-container-lowest to-transparent z-10"></div>
-        <div className="absolute pointer-events-none inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-surface-container-lowest to-transparent z-10"></div>
+        <div className="absolute pointer-events-none inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-surface to-transparent z-10"></div>
+        <div className="absolute pointer-events-none inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-surface to-transparent z-10"></div>
         
         <motion.div
           className="flex w-max"

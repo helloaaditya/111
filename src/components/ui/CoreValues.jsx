@@ -26,7 +26,7 @@ const values = [
 
 export default function CoreValues() {
   return (
-    <section className="py-24 border-y border-outline-variant/10 bg-surface">
+    <section className="py-16 md:py-20 border-y border-outline-variant/10 bg-surface">
       <div className="container mx-auto px-10">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
