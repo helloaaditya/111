@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { FlowButton } from './FlowButton';
+import { Link } from 'react-router-dom';
 
 const rituals = [
   {
@@ -79,8 +80,9 @@ export default function SignatureRituals() {
                     {ritual.description}
                   </p>
                   <div className="flex flex-wrap items-center gap-4 md:gap-8">
-                    <span className="font-headline text-2xl text-on-surface italic">{ritual.price}</span>
-                    <FlowButton text="INQUIRE NOW" />
+                    <Link to="/contact#booking-form">
+                      <FlowButton text="INQUIRE NOW" />
+                    </Link>
                   </div>
                 </motion.div>
               </div>

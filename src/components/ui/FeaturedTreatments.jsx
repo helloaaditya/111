@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { FlowButton } from './FlowButton';
+import { Link } from 'react-router-dom';
 
 const treatments = [
   {
@@ -50,7 +51,9 @@ const TreatmentCard = ({ title, duration, price, description, image, alt }) => (
     <p className="font-body text-on-surface-variant leading-relaxed mb-6">
       {description}
     </p>
-    <FlowButton text="RESERVE SESSION" />
+    <Link to="/contact#booking-form">
+      <FlowButton text="RESERVE SESSION" />
+    </Link>
   </div>
 );
 

@@ -9,6 +9,7 @@ import FeaturedTreatments from '../components/ui/FeaturedTreatments';
 import { FlowButton } from '../components/ui/FlowButton';
 import Footer from '../components/ui/Footer';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   return (
@@ -48,8 +49,12 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.5 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             >
-              <FlowButton text="EXPLORE SANCTUARY" />
-              <FlowButton text="VIEW TREATMENTS" />
+              <Link to="/about">
+                <FlowButton text="EXPLORE SANCTUARY" />
+              </Link>
+              <Link to="/services">
+                <FlowButton text="VIEW TREATMENTS" />
+              </Link>
             </motion.div>
           </div>
           <motion.div 
@@ -81,9 +86,6 @@ export default function HomePage() {
               <p className="font-body text-lg text-on-surface-variant leading-relaxed italic mb-12">
                 "In the depth of winter, I finally learned that within me there lay an invincible summer."
               </p>
-              <a className="inline-flex items-center gap-3 text-primary font-label text-xs tracking-widest border-b border-primary/30 pb-2 hover:border-primary transition-all" href="#">
-                READ OUR MANIFESTO <span className="material-symbols-outlined text-sm">east</span>
-              </a>
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
