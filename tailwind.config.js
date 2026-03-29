@@ -80,8 +80,6 @@ export default {
         "xl": "0.5rem", 
         "full": "0.75rem"
       },
-    },
-    extend: {
       animation: {
         "float": "float 6s ease-in-out infinite",
         "float-delayed": "float 6s ease-in-out 3s infinite",
