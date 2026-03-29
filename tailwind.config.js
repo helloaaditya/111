@@ -15,7 +15,7 @@ export default {
         "on-surface": "var(--foreground, #1E1E1E)",
         "on-surface-variant": "var(--muted-foreground, #5A5A5A)",
         
-        "primary": "rgb(var(--primary-rgb) / <alpha-value>)",
+        "primary": "var(--primary, #C5A059)",
         "on-primary": "var(--primary-foreground, #FFFFFF)",
         "primary-container": "#EFE3D1",
         "on-primary-container": "#1E1E1E",

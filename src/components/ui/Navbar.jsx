@@ -1,15 +1,13 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'motion/react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FlowButton } from './FlowButton';
 import { MenuContainer, MenuItem } from './FluidMenu';
 import { Menu as MenuIcon, X } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const { scrollY } = useScroll();
-  const location = useLocation();
   const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -82,12 +80,12 @@ export default function Navbar() {
               </div>
             </div>
             {/* Navigation Items (Text Pills) */}
-            <MenuItem href="/" isActive={location.pathname === "/"}>Home</MenuItem>
-            <MenuItem href="/services" isActive={location.pathname === "/services"}>Services</MenuItem>
-            <MenuItem href="/about" isActive={location.pathname === "/about"}>About</MenuItem>
-            <MenuItem href="/gallery" isActive={location.pathname === "/gallery"}>Gallery</MenuItem>
-            <MenuItem href="/contact" isActive={location.pathname === "/contact"}>Contact</MenuItem>
-            <MenuItem href="/contact" isActive={false}>Book Now</MenuItem>
+            <MenuItem href="/">Home</MenuItem>
+            <MenuItem href="/services">Services</MenuItem>
+            <MenuItem href="/about">About</MenuItem>
+            <MenuItem href="/gallery">Gallery</MenuItem>
+            <MenuItem href="/contact">Contact</MenuItem>
+            <MenuItem href="/contact">Book Now</MenuItem>
           </MenuContainer>
         </div>
       </nav>

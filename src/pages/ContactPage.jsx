@@ -327,7 +327,7 @@ const ContactPage = () => {
                           <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full h-14 bg-primary hover:opacity-90 text-white group"
+                            className="w-full h-14 bg-primary hover:bg-gold-600 text-white group"
                           >
                             <AnimatePresence mode="wait">
                               {isSubmitting ? (
@@ -410,7 +410,7 @@ const ContactPage = () => {
                 Experience 111 International Spas at our flagship New Delhi location. 
                 A haven designed to disconnect from the world and reconnect with yourself.
               </p>
-              <Button className="w-max px-8 h-12 bg-primary hover:opacity-90 text-white">
+              <Button className="w-max px-8 h-12">
                 Get Directions
               </Button>
             </div>
@@ -443,8 +443,8 @@ const ContactPage = () => {
             "True luxury is not just an experience, it's a feeling of being understood."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" className="h-12 px-10 bg-primary hover:opacity-90 text-white">Explore Treatments</Button>
-            <Button variant="outline" className="h-12 px-10 border-primary/20 text-primary hover:bg-primary/5">Our Philosophy</Button>
+            <Button variant="default" className="h-12 px-10">Explore Treatments</Button>
+            <Button variant="outline" className="h-12 px-10 border-primary/20">Our Philosophy</Button>
           </div>
         </motion.div>
       </section>

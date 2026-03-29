@@ -12,9 +12,8 @@
   --popover: #FFFFFF;
   --popover-foreground: #1E1E1E;
 
-  /* Gold / Primary - Using RGB for alpha support */
-  --primary-rgb: 197, 160, 89;
-  --primary: rgb(var(--primary-rgb));
+  /* Gold / Primary */
+  --primary: #C5A059;
   --primary-foreground: #FFFFFF;
 
   /* Sage Green / Secondary */

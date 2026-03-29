@@ -39,12 +39,12 @@ const StatCounter = ({ value, suffix, label, delay }) => {
       transition={{ duration: 0.6, delay }}
       whileHover={{ y: -5 }}
     >
-      <div className="text-5xl font-light mb-2 text-primary">
+      <div className="text-5xl font-light mb-2 text-[#88734C]">
         {count}{suffix}
       </div>
-      <p className="text-on-surface-variant/70 text-sm">{label}</p>
+      <p className="text-[#202e44]/70 text-sm">{label}</p>
       <motion.div 
-        className="w-12 h-0.5 bg-primary mt-4 group-hover:w-20 transition-all duration-300"
+        className="w-12 h-0.5 bg-[#88734C] mt-4 group-hover:w-20 transition-all duration-300"
       />
     </motion.div>
   );
@@ -153,17 +153,17 @@ export default function AboutPage() {
         >
           {/* Heritage Badge */}
           <motion.div variants={itemVariants} className="mb-8">
-            <span className="inline-block text-primary text-sm tracking-[0.3em] uppercase font-light mb-4">
+            <span className="inline-block text-[#88734C] text-sm tracking-[0.3em] uppercase font-light mb-4">
               Our Heritage
             </span>
           </motion.div>
 
           {/* Main Title with Vertical Text Effect */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-on-surface mb-6 tracking-tight leading-none">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-[#202e44] mb-6 tracking-tight leading-none">
               <span className="block mb-2">Elevating</span>
               <span className="block mb-2">Wellness</span>
-              <span className="block text-primary">to an Art Form</span>
+              <span className="block text-[#88734C]">to an Art Form</span>
             </h1>
           </motion.div>
 
@@ -172,11 +172,11 @@ export default function AboutPage() {
             variants={itemVariants}
             className="flex flex-col items-center gap-2 mt-16"
           >
-            <span className="text-xs text-on-surface/60 tracking-widest uppercase">Scroll to Discover</span>
+            <span className="text-xs text-[#202e44]/60 tracking-widest uppercase">Scroll to Discover</span>
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-16 bg-gradient-to-b from-primary to-transparent"
+              className="w-px h-16 bg-gradient-to-b from-[#88734C] to-transparent"
             />
           </motion.div>
         </motion.div>
@@ -214,11 +214,11 @@ export default function AboutPage() {
             {/* Right: Content */}
             <motion.div variants={itemVariants} className="space-y-8">
               <div>
-                <h2 className="text-5xl font-light text-on-surface mb-6 leading-tight">
+                <h2 className="text-5xl font-light text-[#202e44] mb-6 leading-tight">
                   A Sanctuary of<br />
-                  <span className="text-primary">Rejuvenation</span>
+                  <span className="text-[#88734C]">Rejuvenation</span>
                 </h2>
-                <div className="w-24 h-px bg-primary mb-8" />
+                <div className="w-24 h-px bg-[#88734C] mb-8" />
               </div>
 
               <div className="space-y-6 text-[#202e44]/80 leading-relaxed">
@@ -329,14 +329,14 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.8 }}
-            className="bg-on-surface text-surface p-12 md:p-16 rounded-lg text-center"
+            className="bg-[#202e44] text-white p-12 md:p-16 rounded-lg text-center"
           >
             <h2 className="text-4xl md:text-5xl font-light mb-6">Begin Your Journey</h2>
-            <p className="text-surface/80 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
               Experience the art of wellness. Book your appointment today and discover a sanctuary where healing begins.
             </p>
             <motion.button
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full flex items-center gap-2 font-light text-lg mx-auto transition-colors"
+              className="bg-[#88734C] hover:bg-[#88734C]/90 text-white px-8 py-4 rounded-full flex items-center gap-2 font-light text-lg mx-auto transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
