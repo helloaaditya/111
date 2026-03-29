@@ -39,12 +39,12 @@ const StatCounter = ({ value, suffix, label, delay }) => {
       transition={{ duration: 0.6, delay }}
       whileHover={{ y: -5 }}
     >
-      <div className="text-5xl font-light mb-2 text-[#88734C]">
+      <div className="text-5xl font-light mb-2 text-[#C5A059]">
         {count}{suffix}
       </div>
       <p className="text-[#202e44]/70 text-sm">{label}</p>
       <motion.div 
-        className="w-12 h-0.5 bg-[#88734C] mt-4 group-hover:w-20 transition-all duration-300"
+        className="w-12 h-0.5 bg-[#C5A059] mt-4 group-hover:w-20 transition-all duration-300"
       />
     </motion.div>
   );
@@ -111,7 +111,7 @@ export default function AboutPage() {
         
         {/* Decorative background elements */}
         <motion.div
-          className="absolute top-20 left-10 w-96 h-96 rounded-full bg-[#88734C]/20 blur-3xl"
+          className="absolute top-20 left-10 w-96 h-96 rounded-full bg-[#C5A059]/20 blur-3xl"
           style={{ y: y1, rotate: rotate1 }}
         />
         <motion.div
@@ -125,17 +125,17 @@ export default function AboutPage() {
         />
         
         {/* Decorative patterns */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#88734C05_0%,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#88734C0A_1px,transparent_1px),linear-gradient(to_bottom,#88734C0A_1px,transparent_1px)] bg-[size:6rem_6rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#C5A05905_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#C5A0590A_1px,transparent_1px),linear-gradient(to_bottom,#C5A0590A_1px,transparent_1px)] bg-[size:6rem_6rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
         
         {/* Floating orbs */}
         <motion.div
-          className="absolute top-40 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-[#88734C]/30 to-[#C9B896]/20 blur-2xl"
+          className="absolute top-40 right-1/4 w-40 h-40 rounded-full bg-gradient-to-br from-[#C5A059]/30 to-[#C9B896]/20 blur-2xl"
           animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-40 left-1/4 w-48 h-48 rounded-full bg-gradient-to-tr from-[#A9BBC8]/25 to-[#88734C]/15 blur-2xl"
+          className="absolute bottom-40 left-1/4 w-48 h-48 rounded-full bg-gradient-to-tr from-[#A9BBC8]/25 to-[#C5A059]/15 blur-2xl"
           animate={{ y: [0, 40, 0], x: [0, -30, 0] }}
           transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -153,7 +153,7 @@ export default function AboutPage() {
         >
           {/* Heritage Badge */}
           <motion.div variants={itemVariants} className="mb-8">
-            <span className="inline-block text-[#88734C] text-sm tracking-[0.3em] uppercase font-light mb-4">
+            <span className="inline-block text-[#C5A059] text-sm tracking-[0.3em] uppercase font-light mb-4">
               Our Heritage
             </span>
           </motion.div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-[#202e44] mb-6 tracking-tight leading-none">
               <span className="block mb-2">Elevating</span>
               <span className="block mb-2">Wellness</span>
-              <span className="block text-[#88734C]">to an Art Form</span>
+              <span className="block text-[#C5A059]">to an Art Form</span>
             </h1>
           </motion.div>
 
@@ -176,7 +176,7 @@ export default function AboutPage() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-16 bg-gradient-to-b from-[#88734C] to-transparent"
+              className="w-px h-16 bg-gradient-to-b from-[#C5A059] to-transparent"
             />
           </motion.div>
         </motion.div>
@@ -203,7 +203,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#202e44]/30 to-transparent" />
               </div>
               <motion.div
-                className="absolute -bottom-8 -right-8 bg-[#88734C] text-white p-8 rounded-lg shadow-2xl"
+                className="absolute -bottom-8 -right-8 bg-[#C5A059] text-white p-8 rounded-lg shadow-2xl"
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="text-5xl font-light mb-2">15</div>
@@ -216,9 +216,9 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-5xl font-light text-[#202e44] mb-6 leading-tight">
                   A Sanctuary of<br />
-                  <span className="text-[#88734C]">Rejuvenation</span>
+                  <span className="text-[#C5A059]">Rejuvenation</span>
                 </h2>
-                <div className="w-24 h-px bg-[#88734C] mb-8" />
+                <div className="w-24 h-px bg-[#C5A059] mb-8" />
               </div>
 
               <div className="space-y-6 text-[#202e44]/80 leading-relaxed">
@@ -232,7 +232,7 @@ export default function AboutPage() {
 
               {/* Quote */}
               <motion.div
-                className="border-l-4 border-[#88734C] pl-6 py-4 italic text-[#202e44]/70"
+                className="border-l-4 border-[#C5A059] pl-6 py-4 italic text-[#202e44]/70"
                 whileHover={{ x: 10 }}
                 transition={{ duration: 0.3 }}
               >
@@ -271,7 +271,7 @@ export default function AboutPage() {
           >
             <motion.div variants={itemVariants} className="text-center mb-16">
               <h2 className="text-5xl font-light text-[#202e44] mb-4">Our Services</h2>
-              <div className="w-24 h-px bg-[#88734C] mx-auto" />
+              <div className="w-24 h-px bg-[#C5A059] mx-auto" />
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -313,7 +313,7 @@ export default function AboutPage() {
                   className="bg-[#F8F8F2]/80 backdrop-blur-sm p-8 rounded-lg group hover:bg-[#F8F8F2] transition-all duration-300"
                   whileHover={{ y: -5 }}
                 >
-                  <div className="text-[#88734C] mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-[#C5A059] mb-4 group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
                   <h3 className="text-xl font-light text-[#202e44] mb-3">{service.title}</h3>
@@ -336,7 +336,7 @@ export default function AboutPage() {
               Experience the art of wellness. Book your appointment today and discover a sanctuary where healing begins.
             </p>
             <motion.button
-              className="bg-[#88734C] hover:bg-[#88734C]/90 text-white px-8 py-4 rounded-full flex items-center gap-2 font-light text-lg mx-auto transition-colors"
+              className="bg-[#C5A059] hover:bg-[#C5A059]/90 text-white px-8 py-4 rounded-full flex items-center gap-2 font-light text-lg mx-auto transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

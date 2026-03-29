@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export function Menu({ trigger, children, align = "left", showChevron = true }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -54,9 +54,15 @@ export function MenuItem({ children, onClick, href, disabled = false, isActive =
 
   if (href) {
     return (
-      <Link to={href} className={baseClasses} onClick={onClick}>
+      <NavLink
+        to={href}
+        className={({ isActive }) => 
+          `relative flex items-center justify-end w-full h-full px-5 group whitespace-nowrap select-none outline-none ${disabled ? "text-on-surface-variant/40 cursor-not-allowed" : "text-on-surface hover:text-primary"} ${isActive ? "text-primary font-bold" : "font-semibold"} transition-colors duration-200 cursor-pointer`
+        }
+        onClick={onClick}
+      >
         {content}
-      </Link>
+      </NavLink>
     );
   }
 

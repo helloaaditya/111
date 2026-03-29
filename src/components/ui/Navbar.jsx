@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'motion/react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { FlowButton } from './FlowButton';
 import { MenuContainer, MenuItem } from './FluidMenu';
 import { Menu as MenuIcon, X } from 'lucide-react';

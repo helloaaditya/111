@@ -14,15 +14,15 @@ export default function Footer() {
           <span className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant">© 2024 INTERNATIONAL LUXURY SPA. ALL RIGHTS RESERVED.</span>
         </div>
         <div className="flex flex-wrap justify-center gap-8">
-          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" to="/about">ABOUT</Link>
-          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" to="/services">TREATMENTS</Link>
-          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" to="/gallery">GALLERY</Link>
-          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" to="/contact">CONTACT</Link>
-          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" to="/">PRIVACY</Link>
+          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/about">ABOUT</Link>
+          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/services">TREATMENTS</Link>
+          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/gallery">GALLERY</Link>
+          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/contact">CONTACT</Link>
+          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/">PRIVACY</Link>
         </div>
         <div className="flex gap-6">
-          <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
+          <a className="text-primary hover:text-primary/70 transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
+          <a className="text-primary hover:text-primary/70 transition-colors" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
         </div>
       </div>
     </motion.footer>

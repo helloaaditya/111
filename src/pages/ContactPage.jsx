@@ -327,7 +327,7 @@ const ContactPage = () => {
                           <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full h-14 bg-primary hover:bg-gold-600 text-white group"
+                            className="w-full h-14 bg-primary hover:bg-primary/90 text-white group"
                           >
                             <AnimatePresence mode="wait">
                               {isSubmitting ? (
