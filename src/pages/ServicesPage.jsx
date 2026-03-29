@@ -178,12 +178,22 @@ function InternationalSpaServices() {
             >
               LUXURY SPA SERVICES
             </motion.span>
-            <h1 className="mb-6 text-3xl sm:text-4xl font-headline font-light tracking-tight text-white md:text-6xl lg:text-7xl drop-shadow-lg">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="mb-6 text-3xl sm:text-4xl font-headline font-light tracking-tight text-white md:text-6xl lg:text-7xl drop-shadow-lg"
+            >
               Discover Our <span className="italic text-[#C5A059] font-normal">Premium</span> <br className="hidden md:block" /> Spa Services
-            </h1>
-            <p className="mx-auto mb-2 font-body font-light text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed drop-shadow-md">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mx-auto mb-2 font-body font-light text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed drop-shadow-md"
+            >
               Indulge in world-class treatments designed to rejuvenate your body, refresh your mind, and restore your spirit at 111 International Spas.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -197,23 +207,33 @@ function InternationalSpaServices() {
               opacity: 1 - scrollProgress * 0.3,
             }}
           >
-            <h5 className="mb-2 text-xs font-light uppercase tracking-widest text-[#C5A059]">
+            <motion.h5 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="mb-2 text-xs font-light uppercase tracking-widest text-[#C5A059]"
+            >
               Our Services
-            </h5>
-            <h2 className="mb-6 text-3xl font-headline font-light tracking-tight text-[#3a2f23] md:text-4xl lg:text-5xl">
+            </motion.h5>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-6 text-3xl font-headline font-light tracking-tight text-[#3a2f23] md:text-4xl lg:text-5xl"
+            >
               Experience the Art of{" "}
               <span className="font-normal text-[#C5A059]">Wellness</span>
-            </h2>
-            <p className="max-w-prose font-body font-light leading-relaxed text-[#5a4a3a]/80">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-prose font-body font-light leading-relaxed text-[#5a4a3a]/80"
+            >
               At 111 International Spas, we offer a comprehensive range of treatments and therapies designed to promote holistic wellness. Each service is performed by our expert therapists using the finest natural products and time-honored techniques.
-            </p>
+            </motion.p>
             <div className="mt-8 space-y-4">
               <h3 className="text-sm font-normal uppercase tracking-wider text-[#C5A059]">
                 Additional Services
               </h3>
               <div className="grid gap-3 sm:grid-cols-2">
                 {ADDITIONAL_SERVICES.map((service, idx) => (
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
                     key={idx}
                     className="rounded-lg border border-[#C5A059]/10 bg-white/40 p-4 backdrop-blur-sm"
                   >
@@ -223,7 +243,7 @@ function InternationalSpaServices() {
                     <p className="text-xs font-light text-[#5a4a3a]/70">
                       {service.description}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -273,9 +293,12 @@ function InternationalSpaServices() {
                     </div>
                   </div>
                   <div className="p-8 md:p-10" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', textRendering: 'optimizeLegibility' }}>
-                    <p className="mb-8 font-body font-normal text-lg leading-relaxed text-[#1a1510]">
+                    <motion.p 
+                      initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }}
+                      className="mb-8 font-body font-normal text-lg leading-relaxed text-[#1a1510]"
+                    >
                       {service.description}
-                    </p>
+                    </motion.p>
                     <div className="space-y-4">
                       <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#C5A059]">
                         Featured Treatments
@@ -302,7 +325,10 @@ function InternationalSpaServices() {
       {/* Benefits Section */}
       <section className="bg-gradient-to-br from-[#FFFFFF] to-[#F6F3EE] py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }}
+            className="mx-auto max-w-3xl text-center"
+          >
             <h2 className="mb-6 text-3xl font-headline font-light tracking-tight text-[#3a2f23] md:text-4xl">
               Why Choose{" "}
               <span className="font-normal text-[#C5A059]">111 International Spas</span>
@@ -310,9 +336,10 @@ function InternationalSpaServices() {
             <p className="mb-12 font-body font-light leading-relaxed text-[#5a4a3a]/80">
               We are committed to providing an unparalleled spa experience that nurtures your well-being and leaves you feeling renewed.
             </p>
-          </div>
+          </motion.div>
           <div className="grid gap-8 md:grid-cols-3">
-            {[
+            {
+              [
               {
                 title: "Expert Therapists",
                 description: "Our certified professionals bring years of experience and passion to every treatment.",
@@ -326,7 +353,8 @@ function InternationalSpaServices() {
                 description: "Escape to our serene sanctuary designed for complete relaxation and rejuvenation.",
               },
             ].map((benefit, idx) => (
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6, delay: idx * 0.15 }}
                 key={idx}
                 className="rounded-2xl border border-[#C5A059]/10 bg-white/40 p-8 text-center backdrop-blur-sm transition-all hover:shadow-2xl hover:shadow-[#C5A059]/10 hover:-translate-y-1"
               >
@@ -336,7 +364,7 @@ function InternationalSpaServices() {
                 <p className="font-body font-light text-[#5a4a3a]/80">
                   {benefit.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -344,13 +372,22 @@ function InternationalSpaServices() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#C5A059] to-[#8B7E6B] py-16 text-center text-white md:py-24 mx-4 mb-8 rounded-3xl shadow-2xl">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="mb-6 text-3xl font-headline font-light tracking-tight md:text-5xl">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+          className="container mx-auto px-4 md:px-6"
+        >
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-6 text-3xl font-headline font-light tracking-tight md:text-5xl"
+          >
             Ready to Begin Your Wellness Journey?
-          </h2>
-          <p className="mx-auto mb-10 max-w-2xl font-body font-light opacity-90 text-lg">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}
+            className="mx-auto mb-10 max-w-2xl font-body font-light opacity-90 text-lg"
+          >
             Book your appointment today and discover the transformative power of our spa services.
-          </p>
+          </motion.p>
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -358,7 +395,7 @@ function InternationalSpaServices() {
           >
             Book Now
           </motion.button>
-        </div>
+        </motion.div>
       </section>
     </div>
   )
