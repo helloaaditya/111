@@ -62,31 +62,43 @@ export default function Navbar() {
             </NavLink>
           ))}
         </div>
-        <div className="hidden sm:block">
-          <Link to="/contact">
-            <FlowButton text="BOOK APPOINTMENT" />
-          </Link>
-        </div>
-        
-        {/* Mobile Fluid Menu Container */}
-        <div className="block sm:hidden shrink-0">
-          <MenuContainer>
-            {/* Trigger (First Child) */}
-            <div className="relative w-6 h-6 flex items-center justify-center outline-none select-none">
-              <div className="flex flex-col items-center justify-center w-full h-full gap-[6px] pointer-events-none">
-                <span className="w-[22px] h-[1.5px] bg-primary rounded-full transition-all duration-[400ms] ease-out origin-center [div[data-expanded=true]_&]:translate-y-[7.5px] [div[data-expanded=true]_&]:rotate-45"></span>
-                <span className="w-[22px] h-[1.5px] bg-primary rounded-full transition-all duration-[400ms] ease-out origin-center [div[data-expanded=true]_&]:opacity-0"></span>
-                <span className="w-[22px] h-[1.5px] bg-primary rounded-full transition-all duration-[400ms] ease-out origin-center [div[data-expanded=true]_&]:-translate-y-[7.5px] [div[data-expanded=true]_&]:-rotate-45"></span>
+        <div className="flexItemsContainer flex items-center gap-3 md:gap-4">
+          <div className="hidden sm:block">
+            <Link to="/contact#booking-form">
+              <FlowButton text="BOOK APPOINTMENT" />
+            </Link>
+          </div>
+          
+          <div className="block sm:hidden shrink-0">
+            <Link to="/contact#booking-form">
+              <button 
+                className="bg-[#C5A059] text-white text-[10px] font-bold tracking-[0.15em] px-4 py-2 rounded-full shadow-md transition-all active:scale-95 border border-[#C5A059]/30"
+              >
+                BOOK NOW
+              </button>
+            </Link>
+          </div>
+          
+          {/* Mobile Fluid Menu Container */}
+          <div className="block sm:hidden shrink-0">
+            <MenuContainer>
+              {/* Trigger (First Child) */}
+              <div className="relative w-6 h-6 flex items-center justify-center outline-none select-none">
+                <div className="flex flex-col items-center justify-center w-full h-full gap-[6px] pointer-events-none">
+                  <span className="w-[22px] h-[1.5px] bg-[#C5A059] rounded-full transition-all duration-[400ms] ease-out origin-center [div[data-expanded=true]_&]:translate-y-[7.5px] [div[data-expanded=true]_&]:rotate-45"></span>
+                  <span className="w-[22px] h-[1.5px] bg-[#C5A059] rounded-full transition-all duration-[400ms] ease-out origin-center [div[data-expanded=true]_&]:opacity-0"></span>
+                  <span className="w-[22px] h-[1.5px] bg-[#C5A059] rounded-full transition-all duration-[400ms] ease-out origin-center [div[data-expanded=true]_&]:-translate-y-[7.5px] [div[data-expanded=true]_&]:-rotate-45"></span>
+                </div>
               </div>
-            </div>
-            {/* Navigation Items (Text Pills) */}
-            <MenuItem href="/">Home</MenuItem>
-            <MenuItem href="/services">Services</MenuItem>
-            <MenuItem href="/about">About</MenuItem>
-            <MenuItem href="/gallery">Gallery</MenuItem>
-            <MenuItem href="/contact">Contact</MenuItem>
-            <MenuItem href="/contact">Book Now</MenuItem>
-          </MenuContainer>
+              {/* Navigation Items (Text Pills) */}
+              <MenuItem href="/">Home</MenuItem>
+              <MenuItem href="/services">Services</MenuItem>
+              <MenuItem href="/about">About</MenuItem>
+              <MenuItem href="/gallery">Gallery</MenuItem>
+              <MenuItem href="/contact">Contact</MenuItem>
+              <MenuItem href="/contact#booking-form">Book Now</MenuItem>
+            </MenuContainer>
+          </div>
         </div>
       </nav>
     </motion.div>

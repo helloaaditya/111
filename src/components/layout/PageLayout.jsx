@@ -4,12 +4,23 @@ import Navbar from '../ui/Navbar';
 import Footer from '../ui/Footer';
 
 export default function PageLayout() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
-  // Scroll to top on route change
+  // Scroll to top or specific element on route/hash change
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // slight delay to ensure the page has rendered the element
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return (
     <div className="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen flex flex-col">

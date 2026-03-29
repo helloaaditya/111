@@ -232,7 +232,7 @@ const ContactPage = () => {
             </div>
 
             {/* Form Column */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 overflow-visible" id="booking-form" style={{ scrollMarginTop: '120px' }}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
