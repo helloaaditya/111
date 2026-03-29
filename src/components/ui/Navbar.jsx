@@ -40,9 +40,10 @@ export default function Navbar() {
         </div>
         <div className="hidden md:flex items-center gap-10">
           <Link className="text-primary font-semibold font-label text-[10px] tracking-widest hover:opacity-90 transition-opacity duration-300 outline-none" to="/">HOME</Link>
-          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/services">TREATMENTS</Link>
-          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/about">PHILOSOPHY</Link>
+          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/services">SERVICES</Link>
+          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/about">ABOUT</Link>
           <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/gallery">GALLERY</Link>
+          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/contact">CONTACT</Link>
         </div>
         <div className="hidden sm:block">
           <Link to="/contact">
@@ -63,9 +64,11 @@ export default function Navbar() {
             </div>
             {/* Navigation Items (Text Pills) */}
             <MenuItem href="/">Home</MenuItem>
-            <MenuItem href="/contact">Book Now</MenuItem>
-            <MenuItem href="/services">Treatments</MenuItem>
+            <MenuItem href="/services">Services</MenuItem>
+            <MenuItem href="/about">About</MenuItem>
             <MenuItem href="/gallery">Gallery</MenuItem>
+            <MenuItem href="/contact">Contact</MenuItem>
+            <MenuItem href="/contact">Book Now</MenuItem>
           </MenuContainer>
         </div>
       </nav>
