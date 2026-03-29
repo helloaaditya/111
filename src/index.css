@@ -47,10 +47,10 @@ html {
   overflow-x: clip;
 }
 
+/* IMPORTANT: Do NOT add overflow to body — it breaks position:sticky */
+/* overflow-x: clip on html is safe; overflow-x: hidden on body is NOT */
 html, body {
   max-width: 100%;
-  /* Prevent long words from causing horizontal overflow */
-  overflow-x: hidden;
 }
 
 /* Allow natural height on mobile (remove forced 884px min) */
