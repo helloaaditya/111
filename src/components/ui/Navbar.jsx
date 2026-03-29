@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FlowButton } from './FlowButton';
 import { MenuContainer, MenuItem } from './FluidMenu';
 import { Menu as MenuIcon, X } from 'lucide-react';
@@ -39,11 +39,28 @@ export default function Navbar() {
           <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[52px] md:h-[80px] -my-2 w-auto object-contain drop-shadow-lg origin-left pl-1 pointer-events-none" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))' }} />
         </div>
         <div className="hidden md:flex items-center gap-10">
-          <Link className="text-primary font-semibold font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/">HOME</Link>
-          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/services">SERVICES</Link>
-          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/about">ABOUT</Link>
-          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/gallery">GALLERY</Link>
-          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/contact">CONTACT</Link>
+          {[
+            { to: "/",        label: "HOME"     },
+            { to: "/services",label: "SERVICES" },
+            { to: "/about",   label: "ABOUT"    },
+            { to: "/gallery", label: "GALLERY"  },
+            { to: "/contact", label: "CONTACT"  },
+          ].map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === "/"}
+              className={({ isActive }) =>
+                `font-label text-[10px] tracking-widest outline-none transition-all duration-300 ${
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "text-foreground/50 hover:text-primary font-normal"
+                }`
+              }
+            >
+              {label}
+            </NavLink>
+          ))}
         </div>
         <div className="hidden sm:block">
           <Link to="/contact">
