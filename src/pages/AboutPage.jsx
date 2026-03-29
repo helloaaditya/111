@@ -5,7 +5,7 @@ import { Sparkles, Award, Users, Calendar, ArrowRight } from 'lucide-react';
 const StatCounter = ({ value, suffix, label, delay }) => {
   const [count, setCount] = useState(0);
   const counterRef = useRef(null);
-  const isInView = useInView(counterRef, { once: false, amount: 0.5 });
+  const isInView = useInView(counterRef, { once: true, amount: 0.1 });
 
   useEffect(() => {
     if (!isInView) {
@@ -53,8 +53,8 @@ const StatCounter = ({ value, suffix, label, delay }) => {
 export default function AboutPage() {
   const sectionRef = useRef(null);
   const statsRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
-  const isStatsInView = useInView(statsRef, { once: false, amount: 0.3 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const isStatsInView = useInView(statsRef, { once: true, amount: 0.1 });
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -93,11 +93,11 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#F2F2EB] via-[#F8F8F2] to-[#FEFEFE] text-[#202e44] overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#F2F2EB] via-[#F8F8F2] to-[#FEFEFE] text-[#202e44] overflow-hidden -mt-24 md:-mt-32">
       {/* Hero Section */}
       <section
         ref={sectionRef}
-        className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-[#F8F8F2] via-[#F2EDE4] to-[#E8DCC8]"
+        className="relative min-h-screen flex items-center justify-center pt-24 md:pt-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-[#F8F8F2] via-[#F2EDE4] to-[#E8DCC8]"
       >
         {/* Background Image Overlay */}
         <div className="absolute inset-0 opacity-30">
@@ -188,7 +188,7 @@ export default function AboutPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32"
           >
@@ -246,7 +246,7 @@ export default function AboutPage() {
             ref={statsRef}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32"
           >
@@ -265,7 +265,7 @@ export default function AboutPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
             className="mb-32"
           >
