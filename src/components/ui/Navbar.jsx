@@ -36,7 +36,9 @@ export default function Navbar() {
     >
       <nav className="pointer-events-auto w-full max-w-6xl bg-white/50 backdrop-blur-md flex justify-between items-center px-4 md:px-8 py-2 md:py-2.5 rounded-full border border-black/5 shadow-2xl transition-all select-none outline-none">
         <div className="flex items-center gap-4">
-          <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[52px] md:h-[80px] -my-2 w-auto object-contain drop-shadow-lg origin-left pl-1 pointer-events-none" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))' }} />
+          <Link to="/" className="outline-none">
+            <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[52px] md:h-[80px] -my-2 w-auto object-contain drop-shadow-lg origin-left pl-1 cursor-pointer" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))' }} />
+          </Link>
         </div>
         <div className="hidden md:flex items-center gap-10">
           {[
