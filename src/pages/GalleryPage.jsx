@@ -24,7 +24,7 @@ export default function GalleryPage() {
     <div className="w-full flex flex-col items-center overflow-x-hidden pb-32">
       
       {/* Gallery Hero */}
-      <section className="relative w-full py-24 md:py-32 px-6 flex items-center justify-center text-center">
+      <section className="relative w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 flex items-center justify-center text-center">
         <div className="relative z-10 container mx-auto max-w-4xl">
           <motion.span 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
@@ -32,13 +32,13 @@ export default function GalleryPage() {
           >
             AESTHETICS OF WELLNESS
           </motion.span>
-          <div className="font-headline text-5xl md:text-7xl text-on-surface leading-tight tracking-tight mb-8">
+          <div className="font-headline text-3xl sm:text-5xl md:text-7xl text-on-surface leading-tight tracking-tight mb-8">
             <TextReveal word="The Sanctuary" />
             <TextReveal word="Gallery" className="italic text-primary" delayOffset={5} />
           </div>
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
-            className="font-body text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+            className="font-body text-base sm:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
           >
             Immerse yourself in the visual serenity of our facilities. Every architectural detail is designed to induce profound calm before your treatment even begins.
           </motion.p>
@@ -49,7 +49,7 @@ export default function GalleryPage() {
       <section className="px-6 w-full">
         <div className="container mx-auto max-w-7xl">
           
-          <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[250px] gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[250px] gap-3 md:gap-6">
             {galleryImages.map((img, i) => (
               <motion.div 
                 key={i}
@@ -61,6 +61,7 @@ export default function GalleryPage() {
               >
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-overlay z-10"></div>
                 <img 
+                 loading="lazy"
                   src={img.src} 
                   alt={`Sanctuary interior detail ${i+1}`} 
                   className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"

@@ -32,7 +32,7 @@ const treatments = [
 
 // Extracted card for cleaner loop mapping
 const TreatmentCard = ({ title, duration, price, description, image, alt }) => (
-  <div className="min-w-[320px] md:min-w-[450px] group">
+  <div className="min-w-[260px] sm:min-w-[320px] md:min-w-[450px] group">
     <div className="aspect-[16/10] overflow-hidden rounded-3xl mb-6 relative">
       <img 
         alt={alt} 
@@ -67,7 +67,7 @@ const Track = () => (
 export default function FeaturedTreatments() {
   return (
     <section className="py-16 md:py-24 bg-surface overflow-hidden">
-      <div className="px-10 mb-16 flex flex-col md:flex-row justify-between items-end gap-6 container mx-auto">
+      <div className="px-4 sm:px-10 mb-10 md:mb-16 flex flex-col md:flex-row justify-between items-end gap-6 container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }}
         >

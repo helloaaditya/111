@@ -99,15 +99,15 @@ const ContactPage = () => {
 
   return (
     <div ref={containerRef} className="relative bg-background min-h-screen w-full overflow-hidden">
-      {/* Background Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Background Elements — absolute so they're clipped by overflow-hidden */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <FloatingOrb color="bg-primary" size="40vw" duration={15} delay={0} initialX="-10%" initialY="-10%" />
         <FloatingOrb color="bg-secondary" size="30vw" duration={18} delay={2} initialX="70%" initialY="20%" />
         <FloatingOrb color="bg-primary" size="35vw" duration={20} delay={4} initialX="20%" initialY="60%" />
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center pt-24 px-4 sm:px-6 lg:px-8 z-10">
+      <section className="relative h-auto min-h-[60vh] sm:h-[80vh] flex items-center justify-center pt-24 px-4 sm:px-6 lg:px-8 z-10">
         <motion.div 
           style={{ y: y1, opacity }}
           className="text-center max-w-4xl"
@@ -126,7 +126,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-8xl font-headline font-light text-on-background leading-[1.1] mb-8"
+            className="text-4xl sm:text-6xl md:text-8xl font-headline font-light text-on-background leading-[1.1] mb-8"
           >
             Inhale <span className="italic text-primary">Peace</span>,<br />
             Exhale <span className="italic text-primary">Inquiry</span>.
@@ -238,7 +238,7 @@ const ContactPage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative glass rounded-[40px] p-8 md:p-12 border border-primary/20 overflow-hidden shadow-2xl"
+                className="relative glass rounded-2xl sm:rounded-[40px] p-4 sm:p-8 md:p-12 border border-primary/20 overflow-hidden shadow-2xl"
               >
                 {/* Decorative background for form */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32" />
@@ -395,7 +395,7 @@ const ContactPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="max-w-7xl mx-auto rounded-[40px] overflow-hidden glass border border-primary/20 relative"
+          className="max-w-7xl mx-auto rounded-2xl sm:rounded-[40px] overflow-hidden glass border border-primary/20 relative"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-8 md:p-16 flex flex-col justify-center">

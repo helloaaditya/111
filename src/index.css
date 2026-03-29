@@ -42,14 +42,22 @@
   }
 }
 
-/* Prevent horizontal overflow at viewport level only */
-/* IMPORTANT: Do NOT set overflow on body — it breaks position:sticky */
+/* Prevent horizontal overflow at viewport level */
 html {
   overflow-x: clip;
 }
 
 html, body {
   max-width: 100%;
+  /* Prevent long words from causing horizontal overflow */
+  overflow-x: hidden;
+}
+
+/* Allow natural height on mobile (remove forced 884px min) */
+body {
+  min-height: 100dvh;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @layer utilities {
@@ -75,8 +83,4 @@ html, body {
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-
-body {
-    min-height: max(884px, 100dvh);
 }

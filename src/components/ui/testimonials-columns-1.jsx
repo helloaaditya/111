@@ -22,15 +22,15 @@ export const TestimonialsColumn = (props) => {
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
                 <div 
-                  className="p-4 md:p-8 rounded-md border border-outline-variant/20 bg-surface-container/30 backdrop-blur-md w-[42vw] md:w-[320px] hover:bg-surface-container/50 transition-colors" 
+                  className="p-4 md:p-8 rounded-md border border-outline-variant/20 bg-surface-container/30 backdrop-blur-md w-[42vw] md:w-[320px] hover:bg-surface-container/50 transition-colors overflow-hidden" 
                   key={i}
                 >
-                  <div className="font-body text-on-surface-variant leading-relaxed mb-4 md:mb-6 italic text-[10px] md:text-base">"{text}"</div>
+                  <div className="font-body text-on-surface-variant leading-relaxed mb-4 md:mb-6 italic text-[10px] md:text-base break-words">"{text}"</div>
                   <div className="flex items-center gap-2 md:gap-4">
                     <div className="h-6 w-6 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-surface-container-highest border border-outline-variant/30 overflow-hidden shrink-0">
                       <span className="material-symbols-outlined text-on-surface-variant/70 text-lg md:text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>person</span>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col overflow-hidden">
                       <div className="font-label tracking-[0.2em] text-primary text-[8px] md:text-[10px] mb-0.5 md:mb-1 uppercase truncate max-w-[80px] md:max-w-none">{name}</div>
                       <div className="text-on-surface-variant text-[8px] md:text-xs italic">{role}</div>
                     </div>

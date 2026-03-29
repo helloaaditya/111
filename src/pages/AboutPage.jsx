@@ -160,7 +160,7 @@ export default function AboutPage() {
 
           {/* Main Title with Vertical Text Effect */}
           <motion.div variants={itemVariants} className="mb-12">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-[#202e44] mb-6 tracking-tight leading-none">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-extralight text-[#202e44] mb-6 tracking-tight leading-none">
               <span className="block mb-2">Elevating</span>
               <span className="block mb-2">Wellness</span>
               <span className="block text-[#C5A059]">to an Art Form</span>
@@ -190,7 +190,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 md:mb-32"
           >
             {/* Left: Image */}
             <motion.div variants={itemVariants} className="relative">
@@ -198,6 +198,7 @@ export default function AboutPage() {
                 <img
                   src="/images/about_us(1).avif"
                   alt="Serene Spa Environment"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#202e44]/30 to-transparent" />
@@ -248,7 +249,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 md:mb-32"
           >
             {stats.map((stat, index) => (
               <StatCounter

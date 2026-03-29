@@ -148,7 +148,7 @@ function InternationalSpaServices() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f5f1ea] to-[#e8dfd0]">
+    <div className="min-h-screen bg-gradient-to-b from-[#f5f1ea] to-[#e8dfd0] overflow-x-hidden">
       {/* Hero Section - Negative margin to pull it up behind the navbar */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-24 md:-mt-32 pt-24 md:pt-32">
         {/* Premium Background Image */}
@@ -168,7 +168,7 @@ function InternationalSpaServices() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto max-w-5xl rounded-[3rem] border border-white/20 bg-white/10 p-8 md:p-16 backdrop-blur-2xl shadow-2xl"
+            className="mx-auto max-w-5xl rounded-2xl sm:rounded-[3rem] border border-white/20 bg-white/10 p-4 sm:p-8 md:p-16 backdrop-blur-2xl shadow-2xl"
           >
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
@@ -178,10 +178,10 @@ function InternationalSpaServices() {
             >
               LUXURY SPA SERVICES
             </motion.span>
-            <h1 className="mb-6 text-4xl font-headline font-light tracking-tight text-white md:text-6xl lg:text-7xl drop-shadow-lg">
+            <h1 className="mb-6 text-3xl sm:text-4xl font-headline font-light tracking-tight text-white md:text-6xl lg:text-7xl drop-shadow-lg">
               Discover Our <span className="italic text-[#C5A059] font-normal">Premium</span> <br className="hidden md:block" /> Spa Services
             </h1>
-            <p className="mx-auto mb-2 font-body font-light text-white/90 md:text-xl max-w-2xl leading-relaxed drop-shadow-md">
+            <p className="mx-auto mb-2 font-body font-light text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed drop-shadow-md">
               Indulge in world-class treatments designed to rejuvenate your body, refresh your mind, and restore your spirit at 111 International Spas.
             </p>
           </motion.div>

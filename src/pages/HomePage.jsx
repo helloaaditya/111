@@ -15,7 +15,7 @@ export default function HomePage() {
     <div className="bg-surface text-on-surface font-body selection:bg-primary/30">
       <Navbar />
 
-      <main className="pt-0">
+      <main className="pt-0 overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center">
           <div className="absolute inset-0 z-0 overflow-hidden bg-surface">
@@ -27,7 +27,7 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-surface to-transparent"></div>
           </div>
-          <div className="relative z-10 container mx-auto px-10 text-center max-w-4xl">
+          <div className="relative z-10 container mx-auto px-4 sm:px-10 text-center max-w-4xl">
             <motion.span 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
               className="font-dmsans label-md uppercase tracking-[0.3em] text-primary mb-6 block" style={{ letterSpacing: '0.15rem' }}
@@ -46,7 +46,7 @@ export default function HomePage() {
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.5 }}
-              className="flex flex-col md:flex-row items-center justify-center gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             >
               <FlowButton text="EXPLORE SANCTUARY" />
               <FlowButton text="VIEW TREATMENTS" />
@@ -65,7 +65,7 @@ export default function HomePage() {
         <CoreValues />
 
         {/* Our Philosophy (Asymmetric Layout) */}
-        <section className="py-16 md:py-20 px-10 bg-surface overflow-hidden">
+        <section className="py-16 md:py-20 px-4 sm:px-10 bg-surface overflow-hidden">
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }}
@@ -120,14 +120,14 @@ export default function HomePage() {
         <Testimonials />
 
         {/* Newsletter / CTA Section - Premium Upgrade */}
-        <section className="py-10 md:py-16 px-10 overflow-hidden relative">
+        <section className="py-10 md:py-16 px-4 sm:px-10 overflow-hidden relative">
           {/* Decorative background blurs to anchor the section */}
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
           <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-tertiary/5 blur-[100px] rounded-full -z-10"></div>
 
           <motion.div 
             initial={{ opacity: 0, y: 50, scale: 0.98 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="container mx-auto bg-surface-variant/90 backdrop-blur-xl border border-primary/25 rounded-[2.5rem] p-12 md:p-24 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_50px_rgba(197,160,89,0.06)]"
+            className="container mx-auto bg-surface-variant/90 backdrop-blur-xl border border-primary/25 rounded-2xl sm:rounded-[2.5rem] p-6 sm:p-12 md:p-24 relative overflow-hidden flex flex-col items-center text-center shadow-[0_20px_50px_rgba(197,160,89,0.06)]"
           >
             {/* Animated Floating Shapes - Subtle gold for consistent beige highlight */}
             <motion.div 

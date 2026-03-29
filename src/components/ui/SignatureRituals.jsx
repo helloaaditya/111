@@ -24,7 +24,7 @@ const rituals = [
 export default function SignatureRituals() {
   return (
     <section className="py-10 md:py-12 bg-gradient-to-b from-surface-variant to-background overflow-hidden">
-      <div className="container mx-auto px-10">
+      <div className="container mx-auto px-4 sm:px-10">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +39,7 @@ export default function SignatureRituals() {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col gap-24 md:gap-32">
+        <div className="flex flex-col gap-16 md:gap-32">
           {rituals.map((ritual, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -53,7 +53,7 @@ export default function SignatureRituals() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="w-full md:w-1/2 relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden group"
+                  className="w-full md:w-1/2 relative h-[280px] sm:h-[380px] md:h-[600px] rounded-3xl overflow-hidden group"
                 >
                   <img 
                     src={ritual.image} 
@@ -78,7 +78,7 @@ export default function SignatureRituals() {
                   <p className="font-body text-on-surface-variant text-lg leading-relaxed mb-10 max-w-lg">
                     {ritual.description}
                   </p>
-                  <div className="flex items-center gap-8">
+                  <div className="flex flex-wrap items-center gap-4 md:gap-8">
                     <span className="font-headline text-2xl text-on-surface italic">{ritual.price}</span>
                     <FlowButton text="INQUIRE NOW" />
                   </div>

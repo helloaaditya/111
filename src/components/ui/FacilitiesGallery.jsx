@@ -41,6 +41,7 @@ export default function FacilitiesGallery() {
               <img 
                 src={image.src} 
                 alt={image.alt} 
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
               {/* Optional overlay gradient for subtle dark theme fitting */}
