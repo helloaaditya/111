@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextReveal from '../components/ui/TextReveal';
 import Testimonials from '../components/ui/Testimonials';
 import SignatureRituals from '../components/ui/SignatureRituals';
@@ -12,6 +12,37 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 export default function HomePage() {
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setIsSubscribing(true);
+    
+    try {
+      await fetch("https://formsubmit.co/ajax/roshands00270@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `New Newsletter Subscription: ${email}`,
+          Email: email,
+          Message: "A new user has requested to join the Inner Circle."
+        })
+      });
+      setEmail('');
+      // Show simple success feedback
+      alert("Welcome to the Inner Circle! Your subscription was successful.");
+    } catch (error) {
+      console.error("Subscription failed:", error);
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary/30">
       <Navbar />
@@ -147,21 +178,27 @@ export default function HomePage() {
               Receive exclusive access to our seasonal rituals, wellness journals, and priority booking for retreat weekends.
             </p>
             
-            <div className="w-full max-w-lg">
+            <form onSubmit={handleSubscribe} className="w-full max-w-lg">
               <div className="relative group">
                 <div className="flex flex-col md:flex-row gap-3 p-2 bg-white/50 backdrop-blur-md rounded-2xl md:rounded-full border border-primary/5 shadow-sm group-focus-within:border-primary/20 group-focus-within:shadow-md transition-all duration-500">
                   <input 
                     className="flex-grow bg-transparent px-6 py-4 rounded-full text-on-surface font-label text-sm tracking-wider placeholder:text-on-surface-variant/40 focus:outline-none" 
                     placeholder="ENTER YOUR EMAIL" 
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    disabled={isSubscribing}
                   />
                   <div className="md:w-auto w-full">
-                    <FlowButton text="SUBSCRIBE" className="w-full md:w-auto" />
+                    <button type="submit" className="w-full" disabled={isSubscribing}>
+                      <FlowButton text={isSubscribing ? "SUBSCRIBING..." : "SUBSCRIBE"} className="w-full md:w-auto pointer-events-none" />
+                    </button>
                   </div>
                 </div>
               </div>
               <p className="mt-4 text-[10px] tracking-[0.2em] text-on-surface-variant/50 uppercase">By subscribing you agree to our Privacy Policy</p>
-            </div>
+            </form>
           </motion.div>
         </section>
       </main>
