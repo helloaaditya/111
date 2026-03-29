@@ -84,8 +84,25 @@ const ContactPage = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
+    // 1. Construct and Open the WhatsApp message FIRST
+    // Browsers block `window.open` if it occurs after an `await` (delay).
+    const phoneNumber = "916374753593"
+    const message = `*New Appointment Request* 🌿
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Service:* ${formData.service !== 'Select Service...' ? formData.service : 'Not Specified'}
+*Date:* ${formData.date}
+*Comments:* ${formData.message}`
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    
+    // Open WhatsApp in a new tab immediately
+    window.open(whatsappUrl, '_blank')
+
+    // 2. Send silent background email via Formsubmit.co
     try {
-      // 1. Send silent background email via Formsubmit.co
       await fetch("https://formsubmit.co/ajax/roshands00270@gmail.com", {
         method: "POST",
         headers: {
@@ -105,22 +122,6 @@ const ContactPage = () => {
       console.error("Background email submission failed:", error);
     }
 
-    // 2. Construct the WhatsApp message
-    const phoneNumber = "916374753593"
-    const message = `*New Appointment Request* 🌿
-
-*Name:* ${formData.name}
-*Email:* ${formData.email}
-*Service:* ${formData.service !== 'Select Service...' ? formData.service : 'Not Specified'}
-*Date:* ${formData.date}
-*Comments:* ${formData.message}`
-
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
-    
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank')
-    
     setIsSubmitting(false)
     setIsSuccess(true)
     
