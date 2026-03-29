@@ -163,7 +163,7 @@ export default function ServiceDetailPage() {
              <p className="font-body text-on-surface-variant mb-8 text-sm max-w-xs mx-auto">
                Secure your preferred therapist and time slot in our sanctuary.
              </p>
-             <FlowButton text="BOOK THIS RITUAL" className="w-full md:w-auto" />
+             <FlowButton text="BOOK THIS RITUAL" className="w-fit px-12" />
           </div>
         </motion.div>
 

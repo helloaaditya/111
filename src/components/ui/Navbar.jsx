@@ -34,10 +34,10 @@ export default function Navbar() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50 flex justify-center pointer-events-none"
     >
-      <nav className="pointer-events-auto w-full max-w-6xl bg-white/50 backdrop-blur-md flex justify-between items-center px-4 md:px-8 py-2 md:py-2.5 rounded-full border border-black/5 shadow-2xl transition-all select-none outline-none">
+      <nav className="pointer-events-auto w-full max-w-6xl bg-gray-800/90 backdrop-blur-xl flex justify-between items-center px-4 md:px-8 py-2 md:py-2.5 rounded-full border border-white/10 shadow-2xl transition-all select-none outline-none">
         <div className="flex items-center gap-4">
           <Link to="/" className="outline-none">
-            <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[52px] md:h-[80px] -my-2 w-auto object-contain drop-shadow-lg origin-left pl-1 cursor-pointer" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))' }} />
+            <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[52px] md:h-[80px] -my-2 w-auto object-contain drop-shadow-lg origin-left pl-1 cursor-pointer" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))' }} />
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-10">
@@ -55,8 +55,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `font-label text-[10px] tracking-widest outline-none transition-all duration-300 ${
                   isActive
-                    ? "text-primary font-semibold"
-                    : "text-foreground/50 hover:text-primary font-normal"
+                    ? "text-[#C5A059] font-semibold drop-shadow-sm"
+                    : "text-white/70 hover:text-white font-normal"
                 }`
               }
             >

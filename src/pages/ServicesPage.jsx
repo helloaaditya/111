@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Sparkles, Droplets, Heart, Flower2, Wind, Leaf } from "lucide-react"
+import { FlowButton } from "../components/ui/FlowButton"
 import { cn } from "../lib/utils"
 
 const ContainerScroll = React.forwardRef(({ children, className, ...props }, ref) => {
@@ -317,6 +318,12 @@ function InternationalSpaServices() {
                           </span>
                         ))}
                       </div>
+                    </div>
+                    
+                    <div className="mt-10 flex justify-start">
+                      <Link to="/contact#booking-form">
+                        <FlowButton text="BOOK NOW" />
+                      </Link>
                     </div>
                   </div>
                 </CardSticky>

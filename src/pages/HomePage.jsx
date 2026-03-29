@@ -68,13 +68,16 @@ export default function HomePage() {
             </motion.span>
             <div className="font-headline text-5xl md:text-7xl lg:text-8xl text-white leading-tight tracking-tight mb-8 shadow-sm">
               <TextReveal word="Welcome to" />
-              <TextReveal word="Luxury Spa" className="italic" delayOffset={10} />
+              <TextReveal word="111 International" className="italic" delayOffset={10} />
+              <div className="md:mt-2">
+                <TextReveal word="Luxury Spa" className="italic text-[#C5A059]" delayOffset={20} />
+              </div>
             </div>
             <motion.p 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
-              className="font-body text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-12 drop-shadow-md"
+              className="font-body text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-12 drop-shadow-md"
             >
-              Welcome to International Luxury Spa, where serenity and rejuvenation await. Our expert team offers the finest treatments to relax your body and mind. Discover a world of luxury and wellness designed to refresh and revitalize you.
+              Welcome to our International Luxury Spa, where indulgence meets tranquility. Escape into a world of rejuvenation and relaxation with our bespoke treatments and serene ambiance, crafted to elevate your wellness experience.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.5 }}
@@ -190,9 +193,9 @@ export default function HomePage() {
                     required
                     disabled={isSubscribing}
                   />
-                  <div className="md:w-auto w-full">
-                    <button type="submit" className="w-full" disabled={isSubscribing}>
-                      <FlowButton text={isSubscribing ? "SUBSCRIBING..." : "SUBSCRIBE"} className="w-full md:w-auto pointer-events-none" />
+                  <div className="md:w-auto w-full flex justify-center md:justify-start">
+                    <button type="submit" disabled={isSubscribing}>
+                      <FlowButton text={isSubscribing ? "SUBSCRIBING..." : "SUBSCRIBE"} className="pointer-events-none" />
                     </button>
                   </div>
                 </div>

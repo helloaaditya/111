@@ -394,12 +394,12 @@ const ContactPage = () => {
                           />
                         </div>
 
-                        <div className="pt-4">
-                          <Button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full h-14 bg-primary hover:bg-primary/90 text-white group"
-                          >
+                          <div className="flex justify-center">
+                            <Button
+                              type="submit"
+                              disabled={isSubmitting}
+                              className="w-fit px-12 h-14 bg-primary hover:bg-primary/90 text-white group"
+                            >
                             <AnimatePresence mode="wait">
                               {isSubmitting ? (
                                 <motion.div
@@ -486,7 +486,7 @@ const ContactPage = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <Button className="w-max px-8 h-12">
+                <Button className="w-fit px-12 h-12">
                   Get Directions
                 </Button>
               </a>
