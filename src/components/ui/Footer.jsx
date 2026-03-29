@@ -18,7 +18,6 @@ export default function Footer() {
           <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/services">TREATMENTS</Link>
           <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/gallery">GALLERY</Link>
           <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/contact">CONTACT</Link>
-          <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-primary hover:text-primary/70 transition-all" to="/">PRIVACY</Link>
         </div>
         <div className="flex gap-6">
           <a className="text-primary hover:text-primary/70 transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Sparkles, Award, Users, Calendar, ArrowRight } from 'lucide-react';
 
 const StatCounter = ({ value, suffix, label, delay }) => {
@@ -328,21 +329,34 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
-            className="bg-[#202e44] text-white p-12 md:p-16 rounded-lg text-center"
+            className="bg-gradient-to-br from-[#202e44] to-[#162133] relative overflow-hidden p-12 md:p-24 rounded-[3rem] text-center shadow-2xl shadow-[#202e44]/20 border border-[#C5A059]/20"
           >
-            <h2 className="text-4xl md:text-5xl font-light mb-6">Begin Your Journey</h2>
-            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+            {/* Subtle Texture Overlay */}
+            <div className="absolute inset-0 opacity-10 mix-blend-overlay">
+               <img src="/images/2024-07-24.jpg" alt="Texture Overlay" className="w-full h-full object-cover" />
+            </div>
+
+            {/* Glowing Decorative Elements */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#C5A059]/20 rounded-full blur-3xl -mr-40 -mt-40 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#C5A059]/15 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
+
+            <h2 className="text-4xl md:text-6xl font-headline font-light text-white mb-8 relative z-10 drop-shadow-lg">
+              Begin Your <span className="italic text-[#C5A059]">Journey</span>
+            </h2>
+            <p className="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-body font-light leading-relaxed relative z-10">
               Experience the art of wellness. Book your appointment today and discover a sanctuary where healing begins.
             </p>
-            <motion.button
-              className="bg-[#C5A059] hover:bg-[#C5A059]/90 text-white px-8 py-4 rounded-full flex items-center gap-2 font-light text-lg mx-auto transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Book Now <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            <Link to="/contact#booking-form" className="relative z-10 inline-block">
+              <motion.button
+                className="bg-[#C5A059] hover:bg-[#b08d4b] text-white px-10 py-5 rounded-full flex items-center gap-3 font-body tracking-wider font-light text-lg mx-auto transition-all shadow-xl shadow-[#C5A059]/30 border border-[#C5A059]/50 hover:border-white/50"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Book Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>

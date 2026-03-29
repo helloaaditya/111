@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 import { Sparkles, Droplets, Heart, Flower2, Wind, Leaf } from "lucide-react"
 import { cn } from "../lib/utils"
 
@@ -57,70 +58,70 @@ CardSticky.displayName = "CardSticky"
 const SPA_SERVICES = [
   {
     id: "service-1",
-    title: "Signature Massages",
-    icon: Heart,
-    description: "Experience our world-renowned massage therapies, from Swedish and deep tissue to hot stone and aromatherapy. Each treatment is customized to your needs, promoting relaxation, relieving tension, and restoring balance to body and mind.",
-    features: ["Swedish Massage", "Deep Tissue", "Hot Stone Therapy", "Aromatherapy"],
+    title: "Aroma Massage",
+    icon: Sparkles,
+    description: "Rejuvenate your skin with our luxurious Aroma Massage, designed to refresh, hydrate, and brighten your complexion.",
+    features: ["Aromatherapy Oils", "Deep Hydration", "Skin Brightening"],
     image: "/images/massage/ser1.webp"
   },
   {
     id: "service-2",
-    title: "Facial Treatments",
-    icon: Sparkles,
-    description: "Rejuvenate your skin with our luxurious facial treatments. Using premium organic products and advanced techniques, we offer customized facials that cleanse, exfoliate, and nourish, leaving your skin radiant and refreshed.",
-    features: ["Anti-Aging Facial", "Hydrating Treatment", "Deep Cleansing", "Organic Skincare"],
+    title: "Deep Tissue Massage",
+    icon: Heart,
+    description: "Indulge in our luxurious Deep Tissue Massage, crafted to rejuvenate and revitalize your senses completely.",
+    features: ["Deep Tissue Focus", "Sensory Revitalization", "Muscle Relief"],
     image: "/images/massage/ser2.webp"
   },
   {
     id: "service-3",
-    title: "Body Treatments",
+    title: "Swedish Massage",
     icon: Droplets,
-    description: "Indulge in our comprehensive body treatments designed to detoxify, exfoliate, and hydrate. From body wraps to scrubs, each treatment uses natural ingredients to leave your skin silky smooth and deeply nourished.",
-    features: ["Body Wraps", "Salt Scrubs", "Mud Therapy", "Detox Treatments"],
+    description: "Rejuvenate with our Swedish Massage, enriched with essential minerals for ultimate relaxation and skin health.",
+    features: ["Essential Minerals", "Skin Health", "Ultimate Relaxation"],
     image: "/images/massage/ser3.webp"
   },
   {
     id: "service-4",
-    title: "Hydrotherapy",
+    title: "Thai Massage",
     icon: Wind,
-    description: "Immerse yourself in the healing power of water. Our hydrotherapy facilities include mineral pools, whirlpools, and therapeutic baths that promote circulation, ease muscle tension, and provide deep relaxation.",
-    features: ["Mineral Pools", "Whirlpool Therapy", "Vichy Shower", "Steam Room"],
+    description: "Experience silky smooth skin with our luxurious Thai Massage services, tailored for ultimate comfort and lasting results.",
+    features: ["Silky Smooth Skin", "Ultimate Comfort", "Lasting Results"],
     image: "/images/massage/ser12.webp"
   },
   {
     id: "service-5",
-    title: "Wellness Programs",
+    title: "Massage",
     icon: Flower2,
-    description: "Embark on a holistic wellness journey with our comprehensive programs. Combining massage, meditation, yoga, and nutrition guidance, we help you achieve lasting balance and vitality in your daily life.",
-    features: ["Yoga Sessions", "Meditation Classes", "Nutrition Counseling", "Wellness Coaching"],
+    description: "Rejuvenate your senses with our luxurious massages, designed to relax, revitalize, and restore balance.",
+    features: ["Relaxation", "Revitalization", "Balance Restoration"],
     image: "/images/massage/ser5.webp"
   },
   {
     id: "service-6",
-    title: "Specialty Rituals",
+    title: "Geothermal Spa",
     icon: Leaf,
-    description: "Experience our signature spa rituals inspired by ancient healing traditions from around the world. Each multi-step treatment combines various therapies for a transformative and deeply restorative experience.",
-    features: ["Ayurvedic Rituals", "Thai Massage", "Balinese Treatment", "Japanese Onsen"],
+    description: "Indulge in the rejuvenating experience of our Geothermal Spa, where natural hot springs meet luxurious relaxation.",
+    features: ["Natural Hot Springs", "Luxurious Relaxation", "Thermal Healing"],
     image: "/images/massage/ser14.webp"
   },
 ]
 
-const ADDITIONAL_SERVICES = [
+const WORKING_PROCESS = [
   {
-    title: "Manicure & Pedicure",
-    description: "Professional nail care services with premium products",
+    title: "Personalized Consultation",
+    description: "Begins with a warm welcome and thorough consultation to thoroughly understand your wellness goals.",
   },
   {
-    title: "Hair & Scalp Treatments",
-    description: "Nourishing treatments for healthy, beautiful hair",
+    title: "Bespoke Treatment",
+    description: "Expert therapists curate a customized treatment plan using premium products and advanced techniques.",
   },
   {
-    title: "Couples Packages",
-    description: "Romantic spa experiences designed for two",
+    title: "Skilled Execution",
+    description: "Experience exclusive therapies delivered by professionals for unparalleled relaxation and rejuvenation.",
   },
   {
-    title: "Bridal Services",
-    description: "Complete beauty preparation for your special day",
+    title: "Tranquil Journey",
+    description: "Unfold your session in our serene environment, leaving you refreshed, revitalized, and renewed.",
   },
 ]
 
@@ -228,20 +229,23 @@ function InternationalSpaServices() {
             </motion.p>
             <div className="mt-8 space-y-4">
               <h3 className="text-sm font-normal uppercase tracking-wider text-[#C5A059]">
-                Additional Services
+                Our Working Process
               </h3>
               <div className="grid gap-3 sm:grid-cols-2">
-                {ADDITIONAL_SERVICES.map((service, idx) => (
+                {WORKING_PROCESS.map((step, idx) => (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
                     key={idx}
-                    className="rounded-lg border border-[#C5A059]/10 bg-white/40 p-4 backdrop-blur-sm"
+                    className="relative rounded-lg border border-[#C5A059]/10 bg-white/40 p-5 backdrop-blur-sm overflow-hidden"
                   >
-                    <h4 className="mb-1 text-sm font-normal text-[#3a2f23]">
-                      {service.title}
+                    <div className="absolute top-2 right-3 text-[#C5A059]/20 font-headline text-4xl font-bold">
+                      0{idx + 1}
+                    </div>
+                    <h4 className="mb-2 text-sm font-normal text-[#3a2f23] relative z-10">
+                      {step.title}
                     </h4>
-                    <p className="text-xs font-light text-[#5a4a3a]/70">
-                      {service.description}
+                    <p className="text-xs font-light text-[#5a4a3a]/70 relative z-10 leading-relaxed">
+                      {step.description}
                     </p>
                   </motion.div>
                 ))}
@@ -388,13 +392,15 @@ function InternationalSpaServices() {
           >
             Book your appointment today and discover the transformative power of our spa services.
           </motion.p>
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="rounded-full border-2 border-white bg-white px-10 py-4 font-body font-light text-[#C5A059] text-lg transition-all hover:bg-transparent hover:text-white"
-          >
-            Book Now
-          </motion.button>
+          <Link to="/contact#booking-form" className="inline-block">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="rounded-full border-2 border-white bg-white px-10 py-4 font-body font-light text-[#C5A059] text-lg transition-all hover:bg-transparent hover:text-white"
+            >
+              Book Now
+            </motion.button>
+          </Link>
         </motion.div>
       </section>
     </div>

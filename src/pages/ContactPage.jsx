@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { 
   Sparkles, 
   Phone, 
@@ -63,8 +64,8 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    service: 'Treatment Inquiry',
+    date: '',
+    service: 'Select Service...',
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -98,7 +99,7 @@ const ContactPage = () => {
   }
 
   return (
-    <div ref={containerRef} className="relative bg-background min-h-screen w-full overflow-hidden">
+    <div ref={containerRef} className="relative bg-background min-h-screen w-full overflow-hidden -mt-24 md:-mt-32">
       {/* Background Elements — absolute so they're clipped by overflow-hidden */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <FloatingOrb color="bg-primary" size="40vw" duration={15} delay={0} initialX="-10%" initialY="-10%" />
@@ -107,7 +108,7 @@ const ContactPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-auto min-h-[60vh] sm:h-[80vh] flex items-center justify-center pt-24 px-4 sm:px-6 lg:px-8 z-10">
+      <section className="relative h-auto min-h-[60vh] sm:h-[80vh] flex items-center justify-center pt-24 md:pt-48 px-4 sm:px-6 lg:px-8 z-10">
         <motion.div 
           style={{ y: y1, opacity }}
           className="text-center max-w-4xl"
@@ -118,8 +119,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8"
           >
-            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-xs tracking-[0.2em] uppercase text-primary font-bold">The Serenity Connection</span>
+            <span className="text-xs tracking-[0.2em] uppercase text-[#8B0000] font-bold">GET IN TOUCH</span>
           </motion.div>
 
           <motion.h1 
@@ -128,8 +128,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-6xl md:text-8xl font-headline font-light text-on-background leading-[1.1] mb-8"
           >
-            Inhale <span className="italic text-primary">Peace</span>,<br />
-            Exhale <span className="italic text-primary">Inquiry</span>.
+            Get Appointment
           </motion.h1>
 
           <motion.p
@@ -138,8 +137,7 @@ const ContactPage = () => {
             transition={{ duration: 1, delay: 0.5 }}
             className="text-lg md:text-xl text-on-background/60 font-body font-light max-w-2xl mx-auto leading-relaxed"
           >
-            Our dedicated concierge is ready to curate your bespoke spa experience. 
-            Reach out to begin your journey into ultimate tranquility.
+            Ready to indulge? Book your rejuvenating spa experience today. Contact us to schedule your appointment and unwind in luxury at International Luxury Spa.
           </motion.p>
           
           <motion.div
@@ -177,30 +175,59 @@ const ContactPage = () => {
               </motion.div>
 
               <div className="grid grid-cols-1 gap-4">
-                <ContactInfoCard 
-                  icon={Phone} 
-                  title="Voice" 
-                  details={["+91 111-234-5678", "+91 111-987-6543"]} 
-                  delay={0.1}
-                />
-                <ContactInfoCard 
-                  icon={Mail} 
-                  title="Digital" 
-                  details={["info@111spa.com", "concierge@111spa.com"]} 
-                  delay={0.2}
-                />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="group flex flex-col p-8 rounded-2xl glass border border-primary/10 shadow-lg relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10" />
+                  <h3 className="text-3xl font-headline text-on-background mb-6 relative z-10">Opening Hours</h3>
+                  <div className="space-y-4 font-body text-on-background/80 relative z-10">
+                    <div className="flex justify-between border-b border-primary/10 pb-2">
+                       <span>Monday to Sunday:</span>
+                       <span>10:00 am – 09:30 pm</span>
+                    </div>
+                    <div className="flex justify-between border-b border-primary/10 pb-2">
+                       <span>Saturday:</span>
+                       <span>10:00 am – 09:30 pm</span>
+                    </div>
+                    <div className="flex justify-between border-b border-primary/10 pb-2">
+                       <span>Sunday:</span>
+                       <span>10:00 am – 09:30 pm</span>
+                    </div>
+                    <p className="pt-4 text-[#8B0000] font-medium">
+                      Check out seasonal discounts for best offers.
+                    </p>
+                  </div>
+                </motion.div>
+
                 <ContactInfoCard 
                   icon={MapPin} 
-                  title="Sanctuary" 
-                  details={["Building 111, Luxury Square", "New Delhi, India"]} 
-                  delay={0.3}
+                  title="Location" 
+                  details={[
+                    "4th floor, 28, above OGHA Wellness,", 
+                    "P Janardhan Reddy Nagar, Gachibowli,", 
+                    "Hyderabad, Telangana 500032"
+                  ]} 
+                  delay={0.2}
                 />
-                <ContactInfoCard 
-                  icon={Clock} 
-                  title="Eternity" 
-                  details={["Mon-Fri: 9AM - 10PM", "Weekends: 10AM - 6PM"]} 
-                  delay={0.4}
-                />
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <ContactInfoCard 
+                    icon={Mail} 
+                    title="Our Email:" 
+                    details={["Info@111internationalspa.com"]} 
+                    delay={0.3}
+                  />
+                  <ContactInfoCard 
+                    icon={Phone} 
+                    title="Call Now:" 
+                    details={["+91-63649-44762"]} 
+                    delay={0.4}
+                  />
+                </div>
               </div>
 
               {/* Social Connect */}
@@ -244,8 +271,8 @@ const ContactPage = () => {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32" />
                 
                 <div className="relative z-10">
-                  <h2 className="text-4xl font-headline text-on-background mb-2">Bespoke <span className="text-primary italic">Inquiry</span></h2>
-                  <p className="text-on-background/60 font-body mb-10">Complete the form below and we will respond within 24 hours.</p>
+                  <h2 className="text-4xl font-headline text-on-background mb-2">Get Appointment</h2>
+                  <p className="text-on-background/60 font-body mb-10">Complete the form below and we will respond shortly.</p>
 
                   <AnimatePresence mode="wait">
                     {!isSuccess ? (
@@ -258,68 +285,66 @@ const ContactPage = () => {
                       >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-[0.2em] font-bold text-primary ml-1">Guest Name</label>
                             <Input
                               name="name"
                               required
                               value={formData.name}
                               onChange={handleChange}
-                              placeholder="Your full name"
-                              className="bg-white/5 border-primary/10"
+                              placeholder="First Name"
+                              className="bg-white/5 border-primary/20 h-12"
                             />
                           </div>
                           <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-[0.2em] font-bold text-primary ml-1">Email Portfolio</label>
                             <Input
                               name="email"
                               type="email"
                               required
                               value={formData.email}
                               onChange={handleChange}
-                              placeholder="hello@sanctuary.com"
-                              className="bg-white/5 border-primary/10"
+                              placeholder="Eamil"
+                              className="bg-white/5 border-primary/20 h-12"
                             />
                           </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-[0.2em] font-bold text-primary ml-1">Phone (Optional)</label>
-                            <Input
-                              name="phone"
-                              type="tel"
-                              value={formData.phone}
-                              onChange={handleChange}
-                              placeholder="+91 000-000-0000"
-                              className="bg-white/5 border-primary/10"
-                            />
-                          </div>
-                          <div className="space-y-2">
-                            <label className="text-xs uppercase tracking-[0.2em] font-bold text-primary ml-1">Subject of interest</label>
                             <select
                               name="service"
-                              className="flex h-11 w-full rounded-md border border-primary/20 bg-background/50 backdrop-blur-sm px-4 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:border-primary/50 transition-all duration-300 appearance-none text-on-background/70"
+                              className="flex h-12 w-full rounded-md border border-primary/20 bg-background/50 backdrop-blur-sm px-4 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:border-primary/50 transition-all duration-300 appearance-none text-on-background/70"
                               value={formData.service}
                               onChange={handleChange}
                             >
-                              <option>Treatment Inquiry</option>
-                              <option>Membership Discovery</option>
-                              <option>Private Event Venue</option>
-                              <option>Gift Experience</option>
-                              <option>Other Sanctuary Matters</option>
+                              <option>Select Service...</option>
+                              <option>Aroma Massage</option>
+                              <option>Deep Tissue Massage</option>
+                              <option>Swedish Massage</option>
+                              <option>Thai Massage</option>
+                              <option>Massage</option>
+                              <option>Geothermal Spa</option>
                             </select>
+                          </div>
+                          <div className="space-y-2">
+                            <Input
+                              name="date"
+                              type="date"
+                              required
+                              value={formData.date || ''}
+                              onChange={handleChange}
+                              placeholder="dd-mm-yyyy"
+                              className="bg-white/5 border-primary/20 h-12 text-on-background/70"
+                            />
                           </div>
                         </div>
 
                         <div className="space-y-2">
-                          <label className="text-xs uppercase tracking-[0.2em] font-bold text-primary ml-1">Your Personal Message</label>
                           <Textarea
                             name="message"
                             required
                             value={formData.message}
                             onChange={handleChange}
-                            placeholder="How may we assist in your serenity?"
-                            className="bg-white/5 border-primary/10"
+                            placeholder="Write comments"
+                            className="bg-white/5 border-primary/20 min-h-[120px]"
                           />
                         </div>
 
@@ -349,7 +374,7 @@ const ContactPage = () => {
                                   exit={{ x: 10, opacity: 0 }}
                                   className="flex items-center gap-2 font-headline text-lg tracking-wide"
                                 >
-                                  Submit Inquiry
+                                  SUBMIT NOW
                                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </motion.div>
                               )}
@@ -367,9 +392,9 @@ const ContactPage = () => {
                         <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-6">
                           <CheckCircle2 className="w-10 h-10 text-primary" />
                         </div>
-                        <h3 className="text-3xl font-headline text-on-background mb-4">Inquiry Received</h3>
+                        <h3 className="text-3xl font-headline text-on-background mb-4">Request Received</h3>
                         <p className="text-on-background/70 font-body max-w-sm mx-auto mb-8">
-                          Thank you for connecting with us. Your journey to serenity has begun. A concierge will reach out shortly.
+                          Thank you for getting in touch. We will confirm your appointment details shortly.
                         </p>
                         <Button 
                           variant="outline" 
@@ -407,23 +432,27 @@ const ContactPage = () => {
                 Located in the Heart of <span className="italic text-primary">Luxury</span>.
               </h2>
               <p className="text-on-background/70 font-body text-lg mb-8 leading-relaxed">
-                Experience 111 International Spas at our flagship New Delhi location. 
+                Experience 111 International Spas at our flagship Hyderabad location. 
                 A haven designed to disconnect from the world and reconnect with yourself.
               </p>
-              <Button className="w-max px-8 h-12">
-                Get Directions
-              </Button>
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=111+International+Spa+-+Best+Spa+In+Hitech+City" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button className="w-max px-8 h-12">
+                  Get Directions
+                </Button>
+              </a>
             </div>
-            <div className="h-[400px] lg:h-auto bg-primary/5 relative group cursor-pointer overflow-hidden">
-               {/* Artistic Map Placeholder */}
-               <div className="absolute inset-0 opacity-20 grayscale scale-110 group-hover:scale-100 transition-transform duration-1000" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-               <div className="absolute inset-0 bg-primary/10 flex items-center justify-center backdrop-blur-sm">
-                  <div className="text-center p-8 glass rounded-2xl border border-primary/30 shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
-                    <MapPin className="w-10 h-10 text-primary mx-auto mb-4 animate-bounce" />
-                    <h4 className="text-xl font-headline text-on-background mb-1">Building 111, Luxury Square</h4>
-                    <p className="text-xs tracking-widest uppercase text-primary font-bold">New Delhi, India</p>
-                  </div>
-               </div>
+            <div className="h-[400px] lg:h-auto bg-primary/5 relative overflow-hidden">
+               <iframe 
+                  src="https://maps.google.com/maps?q=111%20International%20Spa%20-%20Best%20Spa%20In%20Hitech%20City&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  className="absolute inset-0 w-full h-full border-0 transition-all duration-1000"
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+               />
             </div>
           </div>
         </motion.div>
@@ -443,8 +472,12 @@ const ContactPage = () => {
             "True luxury is not just an experience, it's a feeling of being understood."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" className="h-12 px-10">Explore Treatments</Button>
-            <Button variant="outline" className="h-12 px-10 border-primary/20">Our Philosophy</Button>
+            <Link to="/services">
+              <Button variant="default" className="h-12 px-10">Explore Treatments</Button>
+            </Link>
+            <Link to="/about">
+              <Button variant="outline" className="h-12 px-10 border-primary/20">Our Philosophy</Button>
+            </Link>
           </div>
         </motion.div>
       </section>
