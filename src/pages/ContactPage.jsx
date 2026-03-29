@@ -83,11 +83,56 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log('Form submitted:', formData)
+    
+    try {
+      // 1. Send silent background email via Formsubmit.co
+      await fetch("https://formsubmit.co/ajax/roshands00270@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `New Appointment Request from ${formData.name}`,
+          Name: formData.name,
+          Email: formData.email,
+          Service: formData.service !== 'Select Service...' ? formData.service : 'Not Specified',
+          Date: formData.date,
+          Comments: formData.message || 'No comments provided.'
+        })
+      });
+    } catch (error) {
+      console.error("Background email submission failed:", error);
+    }
+
+    // 2. Construct the WhatsApp message
+    const phoneNumber = "916374753593"
+    const message = `*New Appointment Request* 🌿
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Service:* ${formData.service !== 'Select Service...' ? formData.service : 'Not Specified'}
+*Date:* ${formData.date}
+*Comments:* ${formData.message}`
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank')
+    
     setIsSubmitting(false)
     setIsSuccess(true)
+    
+    // Reset form after successful submission
+    setFormData({
+      name: '',
+      email: '',
+      date: '',
+      service: 'Select Service...',
+      message: ''
+    })
+    
     setTimeout(() => setIsSuccess(false), 5000)
   }
 
