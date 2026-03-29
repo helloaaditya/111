@@ -15,7 +15,7 @@ export default function HomePage() {
     <div className="bg-surface text-on-surface font-body selection:bg-primary/30">
       <Navbar />
 
-      <main className="pt-0 overflow-x-hidden">
+      <main className="pt-0 [overflow-x:clip]">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center">
           <div className="absolute inset-0 z-0 overflow-hidden bg-surface">
