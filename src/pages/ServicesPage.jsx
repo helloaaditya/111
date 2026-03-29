@@ -148,9 +148,9 @@ function InternationalSpaServices() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f5f1ea] to-[#e8dfd0] overflow-x-hidden">
-      {/* Hero Section - Negative margin to pull it up behind the navbar */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-24 md:-mt-32 pt-24 md:pt-32">
+    <div className="min-h-screen bg-gradient-to-b from-[#f5f1ea] to-[#e8dfd0] [overflow-x:clip] -mt-24 md:-mt-32">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 md:pt-32">
         {/* Premium Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
