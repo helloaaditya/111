@@ -39,11 +39,11 @@ export default function Navbar() {
           <img src="/images/logo_final.png" alt="International Luxury Spa" className="h-[52px] md:h-[80px] -my-2 w-auto object-contain drop-shadow-lg origin-left pl-1 pointer-events-none" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))' }} />
         </div>
         <div className="hidden md:flex items-center gap-10">
-          <Link className="text-primary font-semibold font-label text-[10px] tracking-widest hover:opacity-90 transition-opacity duration-300 outline-none" to="/">HOME</Link>
-          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/services">SERVICES</Link>
-          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/about">ABOUT</Link>
-          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/gallery">GALLERY</Link>
-          <Link className="text-on-surface-variant hover:text-primary transition-colors font-label text-[10px] tracking-widest outline-none" to="/contact">CONTACT</Link>
+          <Link className="text-primary font-semibold font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/">HOME</Link>
+          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/services">SERVICES</Link>
+          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/about">ABOUT</Link>
+          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/gallery">GALLERY</Link>
+          <Link className="text-primary font-label text-[10px] tracking-widest hover:opacity-75 transition-opacity duration-300 outline-none" to="/contact">CONTACT</Link>
         </div>
         <div className="hidden sm:block">
           <Link to="/contact">
