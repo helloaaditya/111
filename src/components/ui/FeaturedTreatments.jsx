@@ -8,7 +8,6 @@ const treatments = [
   {
     title: "Thai Massage",
     duration: "90 MIN",
-    price: "$180",
     description: "A sensory journey using signature essential oils to balance the limbic system and soothe the nervous system.",
     image: "/images/2024-07-30 (5).jpg",
     alt: "Aroma Massage"
@@ -16,7 +15,6 @@ const treatments = [
   {
     title: "Swedish Massage",
     duration: "60 MIN",
-    price: "$150",
     description: "Classic techniques designed to increase oxygen flow in the blood and release toxins from the muscles.",
     image: "/images/2024-09-26.jpg",
     alt: "Swedish Massage"
@@ -24,7 +22,6 @@ const treatments = [
   {
     title: "Deep Tissue",
     duration: "75 MIN",
-    price: "$210",
     description: "Targeting the inner layers of your muscles and connective tissues to address chronic aches and stiffness.",
     image: "/images/2024-07-30 (7).jpg",
     alt: "Deep Tissue"
@@ -32,7 +29,7 @@ const treatments = [
 ];
 
 // Extracted card for cleaner loop mapping
-const TreatmentCard = ({ title, duration, price, description, image, alt }) => (
+const TreatmentCard = ({ title, duration, description, image, alt }) => (
   <div className="min-w-[260px] sm:min-w-[320px] md:min-w-[450px] group">
     <div className="aspect-[16/10] overflow-hidden rounded-3xl mb-6 relative">
       <img 
@@ -46,7 +43,6 @@ const TreatmentCard = ({ title, duration, price, description, image, alt }) => (
     </div>
     <div className="flex justify-between items-start mb-4">
       <h3 className="font-headline text-2xl text-on-surface">{title}</h3>
-      <span className="text-primary font-label">{price}</span>
     </div>
     <p className="font-body text-on-surface-variant leading-relaxed mb-6">
       {description}
