@@ -21,8 +21,8 @@ export default function Footer() {
           <Link className="font-['Manrope'] text-xs tracking-[0.15em] uppercase text-on-surface-variant hover:text-primary transition-all" to="/">PRIVACY</Link>
         </div>
         <div className="flex gap-6">
-          <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
-          <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
+          <a className="text-primary hover:opacity-80 transition-opacity" href="#"><span className="material-symbols-outlined text-xl">camera</span></a>
+          <a className="text-primary hover:opacity-80 transition-opacity" href="#"><span className="material-symbols-outlined text-xl">alternate_email</span></a>
         </div>
       </div>
     </motion.footer>

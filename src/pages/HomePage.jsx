@@ -71,7 +71,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }}
               className="md:col-span-5 relative"
             >
-              <span className="label-md uppercase tracking-[0.2em] text-tertiary mb-4 block">ABOUT US</span>
+              <span className="label-md uppercase tracking-[0.2em] text-primary mb-4 block">ABOUT US</span>
               <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface leading-[1.1] mb-10">
                 Revitalize with Our <br/> <span className="italic">Spa Services</span>
               </h2>
@@ -98,10 +98,10 @@ export default function HomePage() {
                 />
               </div>
               {/* Decorative Floating Element */}
-              <div className="absolute -bottom-10 -left-10 bg-tertiary-container p-8 rounded-xl hidden lg:block">
-                <span className="material-symbols-outlined text-4xl text-on-tertiary-container mb-4 block">nature</span>
-                <h4 className="font-headline text-xl text-on-tertiary-container mb-2">Organic Essence</h4>
-                <p className="font-body text-sm text-on-tertiary-container/80 max-w-[180px]">Bespoke oils crafted from wild-harvested botanicals.</p>
+              <div className="absolute -bottom-10 -left-10 bg-primary-container p-8 rounded-xl hidden lg:block">
+                <span className="material-symbols-outlined text-4xl text-on-primary-container mb-4 block">nature</span>
+                <h4 className="font-headline text-xl text-on-primary-container mb-2">Organic Essence</h4>
+                <p className="font-body text-sm text-on-primary-container/80 max-w-[180px]">Bespoke oils crafted from wild-harvested botanicals.</p>
               </div>
             </motion.div>
           </div>
@@ -123,7 +123,7 @@ export default function HomePage() {
         <section className="py-10 md:py-16 px-10 overflow-hidden relative">
           {/* Decorative background blurs to anchor the section */}
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-tertiary/5 blur-[100px] rounded-full -z-10"></div>
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 blur-[100px] rounded-full -z-10"></div>
 
           <motion.div 
             initial={{ opacity: 0, y: 50, scale: 0.98 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
