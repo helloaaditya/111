@@ -96,7 +96,6 @@ export default function Navbar() {
               <MenuItem href="/about">About</MenuItem>
               <MenuItem href="/gallery">Gallery</MenuItem>
               <MenuItem href="/contact">Contact</MenuItem>
-              <MenuItem href="/contact#booking-form">Book Now</MenuItem>
             </MenuContainer>
           </div>
         </div>
