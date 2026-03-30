@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom';
 
 const rituals = [
   {
-    key: "getaway",
-    title: "The Ultimate Getaway",
-    subtitle: "A 3-Hour Escape",
-    description: "Experience the epitome of relaxation. Begin with our deeply detoxifying Seaside Scrub to shed city stress, followed by an 80-minute Signature Hot Stone Massage, and concluding with a restorative Vitamin-C Brightening Facial. Re-emerge completely transformed.",
-    image: "/images/2024-07-30 (1).jpg",
-    price: "$285",
+    key: "aroma-ritual",
+    title: "Signature Aroma Ritual",
+    subtitle: "Sensory Rejuvenation",
+    description: "Experience the ultimate in relaxation. Our signature Aroma Massage combines premium essential oils with advanced techniques to rejuvenate your senses, restore your natural glow, and leave you in a state of absolute tranquility.",
+    image: "/images/massage/ser14.webp",
+    price: "$195",
   },
   {
-    key: "glow",
-    title: "The Ethereal Glow",
-    subtitle: "Restoration & Radiance",
-    description: "Designed to honor the art of presence. This ritual seamlessly blends our renowned VIP Arabian Hammam experience with a Bellanina Facelift Massage. Stimulate energy, release underlying tension, and restore your natural, luminous aura.",
-    image: "/images/2024-10-22 (2).jpg",
-    price: "$245",
+    key: "thai-ritual",
+    title: "Traditional Thai Ritual",
+    subtitle: "Vitality & Balance",
+    description: "Experience the pinnacle of ancient healing. Our Thai Massage Ritual is meticulously designed for balance and vitality, utilizing expert stretching and pressure techniques to release deep-seated tension and restore alignment. Indulge in a journey of professional excellence and profound physical renewal.",
+    image: "/images/massage/ser15.webp",
+    price: "$225",
   }
 ];
 
