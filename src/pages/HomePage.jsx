@@ -60,12 +60,7 @@ export default function HomePage() {
             <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-surface to-transparent"></div>
           </div>
           <div className="relative z-10 container mx-auto px-4 sm:px-10 text-center max-w-4xl">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
-              className="font-dmsans label-md uppercase tracking-[0.3em] text-primary mb-6 block" style={{ letterSpacing: '0.15rem' }}
-            >
-              SERENITY & REJUVENATION
-            </motion.span>
+
             <div className="font-headline text-5xl md:text-7xl lg:text-8xl text-white leading-tight tracking-tight mb-8 shadow-sm">
               <TextReveal word="Welcome to" />
               <TextReveal word="111 International" className="italic" delayOffset={10} />
