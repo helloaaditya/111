@@ -61,7 +61,7 @@ export default function SignatureRituals() {
                     alt={ritual.title} 
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
+
                 </motion.div>
 
                 {/* Text Section */}
