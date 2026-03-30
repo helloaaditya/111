@@ -65,7 +65,7 @@ const ContactPage = () => {
     name: '',
     email: '',
     date: '',
-    service: 'Select Service...',
+    service: '',
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -86,7 +86,7 @@ const ContactPage = () => {
     
     // 1. Construct and Open the WhatsApp message FIRST
     // Browsers block `window.open` if it occurs after an `await` (delay).
-    const phoneNumber = "916374753593"
+    const phoneNumber = "916364944762"
     const message = `*New Appointment Request* 🌿
 
 *Name:* ${formData.name}
@@ -103,7 +103,7 @@ const ContactPage = () => {
 
     // 2. Send silent background email via Formsubmit.co
     try {
-      await fetch("https://formsubmit.co/ajax/roshands00270@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/Info@111internationalspa.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -357,11 +357,12 @@ const ContactPage = () => {
                           <div className="space-y-2">
                             <select
                               name="service"
+                              required
                               className="flex h-12 w-full rounded-md border border-primary/20 bg-background/50 backdrop-blur-sm px-4 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:border-primary/50 transition-all duration-300 appearance-none text-on-background/70"
                               value={formData.service}
                               onChange={handleChange}
                             >
-                              <option>Select Service...</option>
+                              <option value="">Select Service...</option>
                               <option>Aroma Massage</option>
                               <option>Deep Tissue Massage</option>
                               <option>Swedish Massage</option>
@@ -386,7 +387,6 @@ const ContactPage = () => {
                         <div className="space-y-2">
                           <Textarea
                             name="message"
-                            required
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Write comments"

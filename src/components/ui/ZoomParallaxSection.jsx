@@ -28,7 +28,7 @@ export default function ZoomParallaxSection() {
 	}, []);
 
 	const images = [
-		{ src: '/images/2024-10-22.jpg', alt: 'Authentic Spa Interior' },
+		{ src: '/images/premium_spa_hero.png', alt: 'Authentic Spa Interior' },
 		{ src: '/images/2024-07-30.jpg', alt: 'Reception Area' },
 		{ src: '/images/2024-07-30 (5).jpg', alt: 'Treatment Setup' },
 		{ src: '/images/2024-10-22 (2).jpg', alt: 'Premium Massage Bed' },

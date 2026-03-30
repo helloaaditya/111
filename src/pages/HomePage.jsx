@@ -21,7 +21,7 @@ export default function HomePage() {
     setIsSubscribing(true);
     
     try {
-      await fetch("https://formsubmit.co/ajax/roshands00270@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/Info@111internationalspa.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,9 +59,9 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-surface to-transparent"></div>
           </div>
-          <div className="relative z-10 container mx-auto px-4 sm:px-10 text-center max-w-4xl">
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
 
-            <div className="font-headline text-5xl md:text-7xl lg:text-8xl text-white leading-tight tracking-tight mb-8 shadow-sm">
+            <div className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight md:leading-snug tracking-tight mb-8 shadow-sm text-balance">
               <TextReveal word="Welcome to" />
               <TextReveal word="111 International" className="italic" delayOffset={10} />
               <div className="md:mt-2">

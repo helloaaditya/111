@@ -7,17 +7,33 @@ export default function TextReveal({ word = "Cinematic Reveal", className = "", 
     <div className={`text-reveal-container ${className}`}>
       <div key={key} className="text-wrapper">
         <h1 className="title" aria-label={word}>
-          {word.split("").map((char, i) => (
-            <span
-              key={`${key}-${i}`}
-              className="char"
-              style={{
-                "--index": i + delayOffset,
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
+          {word.split(" ").map((w, wordIndex, wordsArray) => {
+            const startIndex = wordsArray.slice(0, wordIndex).join(" ").length + (wordIndex > 0 ? 1 : 0);
+            
+            return (
+              <span key={`word-${wordIndex}`} className="word-wrapper">
+                {w.split("").map((char, i) => (
+                  <span
+                    key={`${key}-${wordIndex}-${i}`}
+                    className="char"
+                    style={{
+                      "--index": startIndex + i + delayOffset,
+                    }}
+                  >
+                    {char}
+                  </span>
+                ))}
+                {wordIndex !== wordsArray.length - 1 && (
+                  <span
+                    className="char"
+                    style={{ "--index": startIndex + w.length + delayOffset }}
+                  >
+                    {"\u00A0"}
+                  </span>
+                )}
+              </span>
+            );
+          })}
         </h1>
       </div>
 
@@ -43,7 +59,12 @@ export default function TextReveal({ word = "Cinematic Reveal", className = "", 
           flex-wrap: wrap;
           justify-content: center;
           margin: 0;
-          text-shadow: 0 0 20px rgba(233, 193, 118, 0.3); /* The text-glow effect */
+          text-shadow: 0 0 20px rgba(233, 193, 118, 0.3);
+        }
+
+        .word-wrapper {
+          display: inline-flex;
+          white-space: nowrap;
         }
 
         .char {
