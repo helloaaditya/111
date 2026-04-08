@@ -192,7 +192,7 @@ function ServiceCard({ service }) {
             <img
               src={image}
               alt={`${service.title} therapy visual`}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover md:object-contain"
             />
           </div>
         </div>
