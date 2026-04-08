@@ -187,12 +187,12 @@ function ServiceCard({ service }) {
   return (
     <article className="rounded-2xl md:rounded-3xl border border-[#C5A059]/20 bg-white shadow-lg overflow-hidden">
       <div className="grid grid-cols-1 gap-0 md:grid-cols-12">
-        <div className="md:col-span-4 border-b border-[#C5A059]/15 md:border-b-0 md:border-r bg-[#11161d] p-4 sm:p-5 md:p-6">
-          <div className="h-[190px] sm:h-[250px] md:h-full min-h-[190px] md:min-h-[240px] flex items-center justify-center rounded-xl md:rounded-2xl bg-black/30 p-2.5 md:p-3">
+        <div className="md:col-span-4 border-b border-[#C5A059]/15 md:border-b-0 md:border-r bg-[#11161d] p-0 sm:p-0 md:p-6">
+          <div className="h-[220px] sm:h-[250px] md:h-full min-h-[220px] md:min-h-[240px] flex items-center justify-center rounded-none md:rounded-2xl bg-black/30 p-0 md:p-3">
             <img
               src={image}
               alt={`${service.title} therapy visual`}
-              className="h-full w-full object-contain"
+              className="h-full w-full object-cover"
             />
           </div>
         </div>
