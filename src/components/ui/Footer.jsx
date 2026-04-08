@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { FacebookIcon, InstagramIcon, TwitterIcon } from './social-icons';
-export default function Footer() {
+export default function Footer({ servicesLabel = "TREATMENTS" }) {
   return (
     <motion.footer 
       initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto border-t border-[#C5A059]/20 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-wrap justify-center gap-8">
           <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-white/70 hover:text-white hover:drop-shadow-sm transition-all" to="/about">ABOUT</Link>
-          <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-white/70 hover:text-white hover:drop-shadow-sm transition-all" to="/services">TREATMENTS</Link>
+          <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-white/70 hover:text-white hover:drop-shadow-sm transition-all" to="/services">{servicesLabel}</Link>
           <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-white/70 hover:text-white hover:drop-shadow-sm transition-all" to="/gallery">GALLERY</Link>
           <Link className="font-label text-[10px] tracking-[0.15em] uppercase text-white/70 hover:text-white hover:drop-shadow-sm transition-all" to="/contact">CONTACT</Link>
         </div>

@@ -24,11 +24,11 @@ export default function PageLayout() {
 
   return (
     <div className="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen flex flex-col">
-      <Navbar />
+      <Navbar servicesLabel="OUR MENU" />
       <main className="flex-grow pt-24 md:pt-32 pb-16">
         <Outlet />
       </main>
-      <Footer />
+      <Footer servicesLabel="OUR MENU" />
     </div>
   );
 }
