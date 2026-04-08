@@ -3,9 +3,9 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { Sparkles, Droplets, Heart, Flower2, Wind, Leaf } from "lucide-react"
 import { FlowButton } from "../components/ui/FlowButton"
 import { cn } from "../lib/utils"
+import { SPA_SERVICES } from "../data/spaServices"
 
 const ContainerScroll = React.forwardRef(({ children, className, ...props }, ref) => {
   return (
@@ -55,57 +55,6 @@ const CardSticky = React.forwardRef(
   }
 )
 CardSticky.displayName = "CardSticky"
-
-const SPA_SERVICES = [
-  {
-    id: "service-1",
-    title: "Aroma Massage",
-    icon: Sparkles,
-    description: "Rejuvenate your skin with our luxurious Aroma Massage, designed to refresh, hydrate, and brighten your complexion.",
-    features: ["Aromatherapy Oils", "Deep Hydration", "Skin Brightening"],
-    image: "/images/massage/ser1.webp"
-  },
-  {
-    id: "service-2",
-    title: "Deep Tissue Massage",
-    icon: Heart,
-    description: "Indulge in our luxurious Deep Tissue Massage, crafted to rejuvenate and revitalize your senses completely.",
-    features: ["Deep Tissue Focus", "Sensory Revitalization", "Muscle Relief"],
-    image: "/images/massage/ser2.webp"
-  },
-  {
-    id: "service-3",
-    title: "Swedish Massage",
-    icon: Droplets,
-    description: "Rejuvenate with our Swedish Massage, enriched with essential minerals for ultimate relaxation and skin health.",
-    features: ["Essential Minerals", "Skin Health", "Ultimate Relaxation"],
-    image: "/images/massage/ser3.webp"
-  },
-  {
-    id: "service-4",
-    title: "Thai Massage",
-    icon: Wind,
-    description: "Experience silky smooth skin with our luxurious Thai Massage services, tailored for ultimate comfort and lasting results.",
-    features: ["Silky Smooth Skin", "Ultimate Comfort", "Lasting Results"],
-    image: "/images/massage/ser12.webp"
-  },
-  {
-    id: "service-5",
-    title: "Massage",
-    icon: Flower2,
-    description: "Rejuvenate your senses with our luxurious massages, designed to relax, revitalize, and restore balance.",
-    features: ["Relaxation", "Revitalization", "Balance Restoration"],
-    image: "/images/massage/ser5.webp"
-  },
-  {
-    id: "service-6",
-    title: "Geothermal Spa",
-    icon: Leaf,
-    description: "Indulge in the rejuvenating experience of our Geothermal Spa, where natural hot springs meet luxurious relaxation.",
-    features: ["Natural Hot Springs", "Luxurious Relaxation", "Thermal Healing"],
-    image: "/images/massage/ser14.webp"
-  },
-]
 
 const WORKING_PROCESS = [
   {
@@ -272,7 +221,7 @@ function InternationalSpaServices() {
             </div>
           </motion.div>
 
-          <ContainerScroll className="min-h-[300vh] space-y-12 py-12">
+          <ContainerScroll className="min-h-[800vh] space-y-12 py-12">
             {SPA_SERVICES.map((service, index) => {
               const IconComponent = service.icon
               return (
@@ -320,9 +269,15 @@ function InternationalSpaServices() {
                       </div>
                     </div>
                     
-                    <div className="mt-10 flex justify-start">
+                    <div className="mt-10 flex flex-wrap items-center gap-6">
                       <Link to="/contact#booking-form">
                         <FlowButton text="BOOK NOW" />
+                      </Link>
+                      <Link
+                        to={`/services/${service.id}`}
+                        className="text-sm font-normal uppercase tracking-wider text-[#C5A059] underline-offset-4 hover:underline"
+                      >
+                        View details
                       </Link>
                     </div>
                   </div>

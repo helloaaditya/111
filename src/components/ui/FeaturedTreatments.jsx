@@ -3,53 +3,54 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { FlowButton } from './FlowButton';
 import { Link } from 'react-router-dom';
+import { SPA_SERVICES } from '../../data/spaServices';
 
-const treatments = [
-  {
-    title: "Thai Massage",
-    duration: "90 MIN",
-    description: "A sensory journey using signature essential oils to balance the limbic system and soothe the nervous system.",
-    image: "/images/2024-07-30 (5).jpg",
-    alt: "Aroma Massage"
-  },
-  {
-    title: "Swedish Massage",
-    duration: "60 MIN",
-    description: "Classic techniques designed to increase oxygen flow in the blood and release toxins from the muscles.",
-    image: "/images/2024-09-26.jpg",
-    alt: "Swedish Massage"
-  },
-  {
-    title: "Deep Tissue",
-    duration: "75 MIN",
-    description: "Targeting the inner layers of your muscles and connective tissues to address chronic aches and stiffness.",
-    image: "/images/2024-07-30 (7).jpg",
-    alt: "Deep Tissue"
-  }
+/** Home carousel: representative picks from the full services menu (order = scroll order). */
+const FEATURED_SERVICE_IDS = [
+  'water-hydro-therapy-room',
+  'the-royal-4-hand-experience',
+  'arabian-hammam-therapy',
+  'full-body-hot-stone-therapy',
+  'the-healing-therapy-experience',
+  'full-body-traditional-thai-therapy',
 ];
 
+const treatments = FEATURED_SERVICE_IDS.map((id) =>
+  SPA_SERVICES.find((s) => s.id === id)
+).filter(Boolean);
+
 // Extracted card for cleaner loop mapping
-const TreatmentCard = ({ title, duration, description, image, alt }) => (
+const TreatmentCard = ({ title, description, image, serviceId }) => (
   <div className="min-w-[260px] sm:min-w-[320px] md:min-w-[450px] group">
-    <div className="aspect-[16/10] overflow-hidden rounded-3xl mb-6 relative">
-      <img 
-        alt={alt} 
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-        src={image} 
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-        <span className="text-white text-xs tracking-widest font-label">DURATION: {duration}</span>
+    <Link to={`/services/${serviceId}`} className="block">
+      <div className="aspect-[16/10] overflow-hidden rounded-3xl mb-6 relative">
+        <img
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          src={image}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8 pointer-events-none">
+          <span className="text-white text-xs tracking-widest font-label">VIEW EXPERIENCE</span>
+        </div>
       </div>
-    </div>
+    </Link>
     <div className="flex justify-between items-start mb-4">
       <h3 className="font-headline text-2xl text-on-surface">{title}</h3>
     </div>
     <p className="font-body text-on-surface-variant leading-relaxed mb-6">
       {description}
     </p>
-    <Link to="/contact#booking-form">
-      <FlowButton text="RESERVE SESSION" />
-    </Link>
+    <div className="flex flex-wrap items-center gap-5">
+      <Link to="/contact#booking-form">
+        <FlowButton text="RESERVE SESSION" />
+      </Link>
+      <Link
+        to={`/services/${serviceId}`}
+        className="text-sm font-label uppercase tracking-wider text-primary underline-offset-4 hover:underline"
+      >
+        View details
+      </Link>
+    </div>
   </div>
 );
 
@@ -57,8 +58,14 @@ const TreatmentCard = ({ title, duration, description, image, alt }) => (
 // This ensures that when the track repeats at -50%, the spacing is mathematically flawless.
 const Track = () => (
   <div className="flex gap-8 pr-8">
-    {treatments.map((t, index) => (
-      <TreatmentCard key={index} {...t} />
+    {treatments.map((t) => (
+      <TreatmentCard
+        key={t.id}
+        title={t.title}
+        description={t.intro}
+        image={t.image}
+        serviceId={t.id}
+      />
     ))}
   </div>
 );
@@ -90,7 +97,7 @@ export default function FeaturedTreatments() {
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 35, // slow, 35 second luxurious scroll
+            duration: 55,
           }}
         >
           {/* We render exactly 2 tracks. -50% translation matches the width of exactly 1 track perfectly. */}
