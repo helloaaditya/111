@@ -6,7 +6,7 @@ import { FlowButton } from './FlowButton';
 import { MenuContainer, MenuItem } from './FluidMenu';
 import { Menu as MenuIcon, X } from 'lucide-react';
 
-export default function Navbar({ servicesLabel = "SERVICES" }) {
+export default function Navbar({ servicesLabel = "OUR MENU" }) {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
