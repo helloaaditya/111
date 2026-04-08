@@ -1,374 +1,301 @@
 "use client"
 
 import * as React from "react"
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import { FlowButton } from "../components/ui/FlowButton"
-import { cn } from "../lib/utils"
 import { SPA_SERVICES } from "../data/spaServices"
 
-const ContainerScroll = React.forwardRef(({ children, className, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn("relative w-full", className)}
-      style={{ ...props.style }}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-})
-ContainerScroll.displayName = "ContainerScroll"
+const WHATSAPP_BOOKING_LINK =
+  "https://wa.me/919133497000?text=Hi%2C%20I%20want%20to%20book%20an%20appointment%20at%20Aura%20International%20Thai%20Spa"
 
-const CardSticky = React.forwardRef(
-  (
-    {
-      index,
-      incrementY = 10,
-      incrementZ = 10,
-      children,
-      className,
-      style,
-      ...props
-    },
-    ref
-  ) => {
-    const y = index * incrementY
-    const z = index * incrementZ
+const IMAGE_OVERRIDES = {
+  "water-hydro-therapy-room": "/images/banners/WATER%20HYDRO%20THERAPY%20ROOM.png",
+  "the-healing-therapy-experience": "/images/deaura/healing.webp",
+  "the-royal-4-hand-experience": "/images/deaura/fourhand.webp",
+  "arabian-hammam-therapy": "/images/deaura/arabian.webp",
+  "the-spa-pool-family-experience": "/images/deaura/poolfamily.webp",
+  "full-body-warm-bamboo-therapy": "/images/deaura/bamboo.webp",
+  "full-body-natural-herbal-potli-therapy": "/images/deaura/herbalpotli.webp",
+  "full-body-kansa-therapy": "/images/deaura/kasatherey.webp",
+  "full-body-revive-deep-tissue-therapy": "/images/deaura/deeptissue.webp",
+  "full-body-vitalizing-balinese-therapy": "/images/deaura/vertilizing.webp",
+  "full-body-swedish-oil-therapy": "/images/deaura/swedeshi.webp",
+  "full-body-aromatherapy-therapy": "/images/deaura/aroma.webp",
+  "full-body-traditional-thai-therapy": "/images/deaura/thaispa.webp",
+  "full-body-refining-scrub": "/images/deaura/refingscrub.webp",
+  "full-body-therapy-scrub-combo": "/images/banners/Full%20Body%20Therapy%20%26%20Scrub%20Combo.png",
+}
 
-    return (
-      <motion.div
-        ref={ref}
-        layout="position"
-        style={{
-          top: y,
-          backfaceVisibility: "hidden",
-          ...style,
-        }}
-        className={cn("sticky", className)}
-        {...props}
-      >
-        {children}
-      </motion.div>
-    )
-  }
-)
-CardSticky.displayName = "CardSticky"
+const TIMED_INCLUDES = {
+  "water-hydro-therapy-room": [
+    "60 Min Body massage with hot oil",
+    "30 Min Spa Pool Experience / Hydro Therapy with hot water",
+    "15 Min Steam Bath",
+    "15 Min Jet Shower",
+  ],
+  "the-spa-pool-family-experience": [
+    "60 Min Body massage with hot oil for adults only",
+    "30 Min Spa Pool Experience / Hydro Therapy with hot water",
+    "15 Min Steam Bath",
+    "15 Min Jet Shower",
+    "Includes up to 2 children allowed up to 5 years",
+  ],
+}
 
-const WORKING_PROCESS = [
+const BROCHURE_COPY = {
+  "water-hydro-therapy-room": {
+    description:
+      "Hot Tub or popullarly known as Spa Pool is a special bathing expeiance which not only clenses your wholebody throughly, but also comes along with a buch of helath benifits.",
+    details:
+      "It helps lower the blood pressure, which basically relieves you of your daily strees, improves blood circulation, improves sleep habits and provides a mental clarity due to privacy and clamness all around. This also helps to improve skin health, hairgrowth. Also enjoy snacks and beverages from the mini fridge at no extra cost.",
+  },
+  "the-healing-therapy-experience": {
+    description:
+      "It helps lower the blood pressure, which basically relieves you of your daily stress, improves blood circulation, improves sleep habits and provides a mental clarity due to privacy and calmness all around.",
+    details:
+      "This also helps to improve skin health, hair growth. Also enjoy snacks and beverages from the mini fridge at no extra cost. HEALING TOUCH THERAPY ROOM.",
+    includes: ["Without Spa Pool Room", "Any choice of massage", "(Aroma / Swedish / Deep Tissue)"],
+  },
+  "the-royal-4-hand-experience": {
+    description:
+      "Performed by two therapists, this massage envelops you completely, giving you a comprehensive treatment. The Therapists use relaxing, slow movements along with harder, warmer and deeper focused movements targeting specific areas, and all around the body.",
+    details: "Recommended for: Dry and dull skin. Fatigue, dehydrated skin and regular wellness care.",
+  },
+  "arabian-hammam-therapy": {
+    description:
+      "Hammam is a middle east way of royalty, in this service, our team provides a beauty bath in a Indulgent ambiance and provide a royal treatment with access to our VIP suite.",
+    details:
+      "This treatment makes itself known around the world for being a relaxing and cleansing Moroccan ritual that is centuries old. Hammam differs slightly from the traditional thermal spa. While both are profoundly relaxing and good for the skin, rather than using thermal waters, hammam treatments use hot steam to encourage a deep and Invigorating cleanse. Hammam treatments also use vitamin-E rich, olive-based soap known for its skin-nourishing and exfoliating properties.",
+  },
+  "the-spa-pool-family-experience": {
+    description:
+      "Hot Tub or popullarly known as Spa Pool is a special bathing expeiance which not only clenses your whole body throughly, but also comes along with a buch of helath benifits.",
+    details:
+      "It helps lower the blood pressure, which basically relieves you of your daily strees, improves blood circulation, improves sleep habits and provides a mental clarity due to privacy and clamness all around. This also helps to improve skin health, hair growth. Also enjoy snacks and beverages from the mini fridge at no extra cost. COUPLES ROOM.",
+  },
+  "full-body-hot-stone-therapy": {
+    description:
+      "Hot stone massage therapy with warm heat from Basalt stones melts away tension, eases muscle stiffness and increases circulation and metabolism.",
+    details:
+      "Hot stone massage therapy promotes deeper muscle relaxation through the placement of smooth, water-heated stones at key points on the body. It reduces stress and anxiety, promotes sleep, relieve symptoms of autoimmune diseases and may help decrease cancer symptoms, boost immunity.",
+  },
+  "full-body-warm-bamboo-therapy": {
+    description:
+      "Ease your stiff muscles with warm bamboo massage where bamboos of different shapes and sizes are used to roll on the stiff tissues to create sense of relaxation.",
+    details:
+      "The pressure here is a combination of both deep tissue and Swedish therapies, which range from medium to hard pressure resulting in deep healing.",
+  },
+  "full-body-natural-herbal-potli-therapy": {
+    description:
+      "Ease your muscle and joint stiffness with heated bundles massage with pouches of herbs and herbal oils like Ash wagandha, Triphala, Neem that have rejuvenating effects on body.",
+    details: "Helps heal the lower back, neck and stiff joints aches.",
+  },
+  "full-body-kansa-therapy": {
+    description:
+      "Regenerate your tissues while removing toxins from your body with help of Kansa wand therapy.",
+    details:
+      "The wand can revitalize your complexion and plump the skin, along with enhanced blood flow, reduced body swelling and muscle stiffness with deep penetration. This treatment also helps balance chakras, doshas and balance PH levels.",
+  },
+  "full-body-revive-deep-tissue-therapy": {
+    description:
+      "Deep tissue massage is a massage therapy focussing on realigning deeper layers of muscles and connective tissues.",
+    details:
+      "It is especially helpful for chronic aches, pains and contracted areas such as stiff neck and upper back, low back pain, leg muscle tightness, and sore shoulders.",
+  },
+  "full-body-vitalizing-balinese-therapy": {
+    description:
+      "Balinese massage is full-body, deep-tissue, holistic treatment using combination of gentle stretches, acupressure, reflexology, and aromatherapy.",
+    details:
+      "It stimulates the flow of blood, oxygen and energy around your body, resulting in sense of well-being, calm and deep relaxation.",
+  },
+  "full-body-swedish-oil-therapy": {
+    description:
+      "Swedish massage helps promote relaxation by releasing muscle tension with gentle massage.",
+    details:
+      "This therapy helps loosen up tight muscles caused by sedentary lifestyle or strenuous exercises and helps relieve tension in the lower back, shoulders and neck.",
+  },
+  "full-body-aromatherapy-therapy": {
+    description:
+      "Aroma therapy is a oil therapy, its a holistic healing treatment using natural plant extracts to promote health and well-being and overall improves the body, mind, and soul.",
+    details: "It enhances both physical and emotional health.",
+  },
+  "full-body-traditional-thai-therapy": {
+    description:
+      "Thai massage, which originated in India, has been around for over 2,500 years. Originally regarded as a healing art, traditional Thai massage includes influences from both Ayurvedic and traditional Chinese medicine.",
+    details:
+      "Unlike typical Western-type massages, it doesn't involve lying on a massage bed while a massage therapist applies oil to your body and kneads your muscles and pressure points.",
+  },
+  "full-body-refining-scrub": {
+    description:
+      "Experience a complete cleansing and exfoliating experience with our exclusive Jojoba Scrub treatment that's suitable for all skin types and is packed with antioxidants and anti-inflammatory ingredients.",
+    details:
+      "Comprised of Jojoba refreshing scented green tea body scrub topped with Jojoba oil, this treatment helps you exfoliate dead cells from your skin the best way.",
+    includes: ["Recommended for:", "Enhanced cell renewal, improvise youthful skin"],
+  },
+  "full-body-therapy-scrub-combo": {
+    description:
+      "Experience a moist, glowing and smooth looking skin after a deep, vigorous yet gentle refining mineral salt scrub from sea salts that is rich in trace minerals.",
+    details:
+      "This helps exfoliate the dead skin layers of the skin resulting in smooth skin.",
+    includes: ["Recommended for:", "Indian skin type, tanned skin repair, skin deep cleansing"],
+  },
+}
+
+const GROUPS = [
   {
-    title: "Personalized Consultation",
-    description: "Begins with a warm welcome and thorough consultation to thoroughly understand your wellness goals.",
+    title: "The Royal Experience",
+    ids: [
+      "water-hydro-therapy-room",
+      "the-healing-therapy-experience",
+      "the-royal-4-hand-experience",
+      "arabian-hammam-therapy",
+      "the-spa-pool-family-experience",
+    ],
   },
   {
-    title: "Bespoke Treatment",
-    description: "Expert therapists curate a customized treatment plan using premium products and advanced techniques.",
+    title: "Exclusive Therapy",
+    ids: [
+      "full-body-hot-stone-therapy",
+      "full-body-warm-bamboo-therapy",
+      "full-body-natural-herbal-potli-therapy",
+      "full-body-kansa-therapy",
+    ],
   },
   {
-    title: "Skilled Execution",
-    description: "Experience exclusive therapies delivered by professionals for unparalleled relaxation and rejuvenation.",
+    title: "Classical Therapy",
+    ids: [
+      "full-body-revive-deep-tissue-therapy",
+      "full-body-vitalizing-balinese-therapy",
+      "full-body-swedish-oil-therapy",
+      "full-body-aromatherapy-therapy",
+      "full-body-traditional-thai-therapy",
+    ],
   },
   {
-    title: "Tranquil Journey",
-    description: "Unfold your session in our serene environment, leaving you refreshed, revitalized, and renewed.",
+    title: "Body Scrub Therapy",
+    ids: ["full-body-refining-scrub", "full-body-therapy-scrub-combo"],
   },
 ]
 
-function InternationalSpaServices() {
-  const [scrollProgress, setScrollProgress] = React.useState(0)
-  const containerRef = React.useRef(null)
+function getService(id) {
+  return SPA_SERVICES.find((service) => service.id === id)
+}
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect()
-        const containerHeight = containerRef.current.offsetHeight
-        const viewportHeight = window.innerHeight
-        const scrollableHeight = containerHeight - viewportHeight
-        
-        const scrolled = Math.max(0, -rect.top)
-        const progress = Math.min(scrolled / scrollableHeight, 1)
-        setScrollProgress(progress)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+function ServiceCard({ service }) {
+  const copy = BROCHURE_COPY[service.id]
+  const includes = TIMED_INCLUDES[service.id] ?? copy?.includes ?? service.features
+  const image = IMAGE_OVERRIDES[service.id] ?? service.image
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f5f1ea] to-[#e8dfd0] [overflow-x:clip] -mt-24 md:-mt-32">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 md:pt-32">
-        {/* Premium Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/premium_spa_hero.png" 
-            alt="Premium Spa Environment" 
-            className="h-full w-full object-cover"
-          />
-          {/* Refined Overlays */}
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#f5f1ea] to-transparent" />
-        </div>
-
-        <div className="container relative z-10 mx-auto px-4 text-center md:px-6 -mt-12 md:-mt-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto max-w-5xl rounded-2xl sm:rounded-[3rem] border border-white/20 bg-white/10 p-4 sm:p-8 md:p-16 backdrop-blur-2xl shadow-2xl"
-          >
-            <motion.span 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="mb-6 inline-block rounded-full border border-white/30 bg-white/10 px-6 py-2 text-xs font-light tracking-[0.3em] uppercase text-white"
-            >
-              LUXURY SPA SERVICES
-            </motion.span>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="mb-6 text-3xl sm:text-4xl font-headline font-light tracking-tight text-white md:text-6xl lg:text-7xl drop-shadow-lg"
-            >
-              Discover Our <span className="italic text-[#C5A059] font-normal">Premium</span> <br className="hidden md:block" /> Spa Services
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="mx-auto mb-2 font-body font-light text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed drop-shadow-md"
-            >
-              Indulge in world-class treatments designed to rejuvenate your body, refresh your mind, and restore your spirit at 111 International Spas.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Services Stack Section */}
-      <section ref={containerRef} className="container mx-auto px-4 py-16 md:px-6 md:py-24">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-          <motion.div 
-            className="md:sticky md:left-0 md:top-32 h-fit md:py-12"
-            style={{
-              opacity: 1 - scrollProgress * 0.3,
-            }}
-          >
-            <motion.h5 
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-              className="mb-2 text-xs font-light uppercase tracking-widest text-[#C5A059]"
-            >
-              Our Services
-            </motion.h5>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-6 text-3xl font-headline font-light tracking-tight text-[#3a2f23] md:text-4xl lg:text-5xl"
-            >
-              Experience the Art of{" "}
-              <span className="font-normal text-[#C5A059]">Wellness</span>
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-prose font-body font-light leading-relaxed text-[#5a4a3a]/80"
-            >
-              At 111 International Spas, we offer a comprehensive range of treatments and therapies designed to promote holistic wellness. Each service is performed by our expert therapists using the finest natural products and time-honored techniques.
-            </motion.p>
-            <div className="mt-8 space-y-4">
-              <h3 className="text-sm font-normal uppercase tracking-wider text-[#C5A059]">
-                Our Working Process
-              </h3>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {WORKING_PROCESS.map((step, idx) => (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
-                    key={idx}
-                    className="relative rounded-lg border border-[#C5A059]/10 bg-white/40 p-5 backdrop-blur-sm overflow-hidden"
-                  >
-                    <div className="absolute top-2 right-3 text-[#C5A059]/20 font-headline text-4xl font-bold">
-                      0{idx + 1}
-                    </div>
-                    <h4 className="mb-2 text-sm font-normal text-[#3a2f23] relative z-10">
-                      {step.title}
-                    </h4>
-                    <p className="text-xs font-light text-[#5a4a3a]/70 relative z-10 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Progress indicator */}
-            <div className="mt-12">
-              <div className="flex items-center gap-3">
-                <div className="h-1 flex-1 overflow-hidden rounded-full bg-[#C5A059]/20">
-                  <motion.div
-                    className="h-full bg-[#C5A059]"
-                    style={{ width: `${scrollProgress * 100}%` }}
-                  />
-                </div>
-                <span className="text-xs font-light text-[#C5A059]">
-                  {Math.round(scrollProgress * 100)}%
-                </span>
-              </div>
-              <p className="mt-2 text-xs font-light text-[#5a4a3a]/60">
-                Scroll to explore all services
-              </p>
-            </div>
-          </motion.div>
-
-          <ContainerScroll className="min-h-[800vh] space-y-12 py-12">
-            {SPA_SERVICES.map((service, index) => {
-              const IconComponent = service.icon
-              return (
-                <CardSticky
-                  key={service.id}
-                  index={index + 2}
-                  className="overflow-hidden rounded-3xl border border-[#C5A059]/20 bg-white shadow-2xl shadow-[#C5A059]/5"
-                >
-                  <div className="relative h-64 w-full overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                      <div className="rounded-full bg-white/95 p-3.5 shadow-xl backdrop-blur-sm">
-                        <IconComponent className="h-7 w-7 text-[#C5A059]" />
-                      </div>
-                      <h2 className="text-3xl font-headline font-normal tracking-tight text-white drop-shadow-lg">
-                        {service.title}
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="p-8 md:p-10" style={{ WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', textRendering: 'optimizeLegibility' }}>
-                    <motion.p 
-                      initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }}
-                      className="mb-8 font-body font-normal text-lg leading-relaxed text-[#1a1510]"
-                    >
-                      {service.description}
-                    </motion.p>
-                    <div className="space-y-4">
-                      <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-[#C5A059]">
-                        Featured Treatments
-                      </h4>
-                      <div className="flex flex-wrap gap-2.5">
-                        {service.features.map((feature, idx) => (
-                          <span
-                            key={idx}
-                            className="rounded-full border border-[#C5A059]/20 bg-[#F6F3EE] px-4 py-1.5 text-xs font-normal text-[#2d241b] transition-colors hover:bg-[#C5A059]/10"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="mt-10 flex flex-wrap items-center gap-6">
-                      <Link to="/contact#booking-form">
-                        <FlowButton text="BOOK NOW" />
-                      </Link>
-                      <Link
-                        to={`/services/${service.id}`}
-                        className="text-sm font-normal uppercase tracking-wider text-[#C5A059] underline-offset-4 hover:underline"
-                      >
-                        View details
-                      </Link>
-                    </div>
-                  </div>
-                </CardSticky>
-              )
-            })}
-          </ContainerScroll>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="bg-gradient-to-br from-[#FFFFFF] to-[#F6F3EE] py-16 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }}
-            className="mx-auto max-w-3xl text-center"
-          >
-            <h2 className="mb-6 text-3xl font-headline font-light tracking-tight text-[#3a2f23] md:text-4xl">
-              Why Choose{" "}
-              <span className="font-normal text-[#C5A059]">111 International Spas</span>
-            </h2>
-            <p className="mb-12 font-body font-light leading-relaxed text-[#5a4a3a]/80">
-              We are committed to providing an unparalleled spa experience that nurtures your well-being and leaves you feeling renewed.
-            </p>
-          </motion.div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {
-              [
-              {
-                title: "Expert Therapists",
-                description: "Our certified professionals bring years of experience and passion to every treatment.",
-              },
-              {
-                title: "Premium Products",
-                description: "We use only the finest organic and natural products for optimal results.",
-              },
-              {
-                title: "Tranquil Environment",
-                description: "Escape to our serene sanctuary designed for complete relaxation and rejuvenation.",
-              },
-            ].map((benefit, idx) => (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6, delay: idx * 0.15 }}
-                key={idx}
-                className="rounded-2xl border border-[#C5A059]/10 bg-white/40 p-8 text-center backdrop-blur-sm transition-all hover:shadow-2xl hover:shadow-[#C5A059]/10 hover:-translate-y-1"
-              >
-                <h3 className="mb-3 text-xl font-headline font-normal text-[#3a2f23]">
-                  {benefit.title}
-                </h3>
-                <p className="font-body font-light text-[#5a4a3a]/80">
-                  {benefit.description}
-                </p>
-              </motion.div>
-            ))}
+    <article className="rounded-2xl md:rounded-3xl border border-[#C5A059]/20 bg-white shadow-lg overflow-hidden">
+      <div className="grid grid-cols-1 gap-0 md:grid-cols-12">
+        <div className="md:col-span-4 border-b border-[#C5A059]/15 md:border-b-0 md:border-r bg-[#11161d] p-4 sm:p-5 md:p-6">
+          <div className="h-[190px] sm:h-[250px] md:h-full min-h-[190px] md:min-h-[240px] flex items-center justify-center rounded-xl md:rounded-2xl bg-black/30 p-2.5 md:p-3">
+            <img
+              src={image}
+              alt={`${service.title} therapy visual`}
+              className="h-full w-full object-contain"
+            />
           </div>
         </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#C5A059] to-[#8B7E6B] py-16 text-center text-white md:py-24 mx-4 mb-8 rounded-3xl shadow-2xl">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-          className="container mx-auto px-4 md:px-6"
-        >
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6 text-3xl font-headline font-light tracking-tight md:text-5xl"
-          >
-            Ready to Begin Your Wellness Journey?
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mb-10 max-w-2xl font-body font-light opacity-90 text-lg"
-          >
-            Book your appointment today and discover the transformative power of our spa services.
-          </motion.p>
-          <Link to="/contact#booking-form" className="inline-block">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="rounded-full border-2 border-white bg-white px-10 py-4 font-body font-light text-[#C5A059] text-lg transition-all hover:bg-transparent hover:text-white"
+        <div className="md:col-span-8 p-4 sm:p-6 md:p-10">
+          <h3 className="font-headline text-xl sm:text-2xl md:text-3xl text-[#1a1510] mb-3 md:mb-4">
+            {service.title}
+          </h3>
+
+          <p className="font-body text-sm sm:text-base text-[#3b3127] leading-relaxed mb-4 md:mb-5">
+            {copy?.description ?? service.description}
+          </p>
+          <p className="font-body text-sm sm:text-base text-[#5a4a3a] leading-relaxed mb-5 md:mb-6">
+            {copy?.details ?? service.details}
+          </p>
+
+          {includes?.length > 0 && (
+            <div className="mb-6 md:mb-8">
+              <h4 className="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.2em] text-[#C5A059] mb-3">
+                Includes
+              </h4>
+              <ul className="space-y-2">
+                {includes.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 sm:gap-3 text-[#2d241b]">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C5A059]" />
+                    <span className="font-body text-sm sm:text-base leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="pt-1 md:pt-2">
+            <a
+              href={WHATSAPP_BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-[#C5A059] px-6 sm:px-7 py-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.15em] text-white transition-colors hover:bg-[#ad8945] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:ring-offset-2"
             >
               Book Now
-            </motion.button>
-          </Link>
-        </motion.div>
-      </section>
-    </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
   )
 }
 
 export default function ServicesPage() {
-  return <InternationalSpaServices />
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#0f1319] via-[#171d26] to-[#11161d] -mt-24 md:-mt-32 text-white">
+      <section className="pt-24 md:pt-28 pb-8 md:pb-10 px-3 sm:px-4 md:px-6">
+        <div className="container mx-auto">
+          <div className="mx-auto max-w-5xl rounded-2xl border border-[#C5A059]/30 bg-[#11161d] shadow-2xl overflow-hidden">
+            <div className="px-4 py-5 sm:px-5 sm:py-6 md:px-8 md:py-7 flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-4 md:gap-8">
+              <img
+                src="/images/logo_final.png"
+                alt="111 International Luxury Spa logo"
+                className="h-14 md:h-16 w-auto object-contain shrink-0"
+              />
+              <div className="text-center sm:text-left">
+                <p className="text-[#C5A059] tracking-[0.28em] uppercase text-[10px] mb-1.5">111</p>
+                <h1 className="font-headline text-lg sm:text-2xl md:text-3xl leading-tight">
+                  INTERNATIONAL
+                  <br />
+                  LUXURY SPA
+                </h1>
+                <p className="mt-1.5 font-headline text-base sm:text-xl md:text-2xl tracking-[0.14em] sm:tracking-[0.16em] text-[#C5A059]">
+                  OUR MENU
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 md:px-6 pb-16 md:pb-24">
+        <div className="mx-auto w-full max-w-5xl">
+        <div className="mb-10 md:mb-14">
+          <p className="text-[#C5A059] uppercase tracking-[0.25em] text-xs mb-2">Our Menu</p>
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl text-white">
+            16 Signature Services
+          </h2>
+        </div>
+
+        <div className="space-y-12 md:space-y-14">
+          {GROUPS.map((group) => (
+            <section key={group.title} aria-label={group.title}>
+              <h3 className="mb-6 md:mb-8 text-[#C5A059] text-lg md:text-xl font-headline tracking-[0.12em] uppercase">
+                {group.title}
+              </h3>
+              <div className="space-y-8">
+                {group.ids.map((id) => {
+                  const service = getService(id)
+                  if (!service) return null
+                  return <ServiceCard key={service.id} service={service} />
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+        </div>
+      </section>
+    </div>
+  )
 }

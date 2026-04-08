@@ -6,7 +6,7 @@ import { FlowButton } from './FlowButton';
 import { MenuContainer, MenuItem } from './FluidMenu';
 import { Menu as MenuIcon, X } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ servicesLabel = "SERVICES" }) {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
@@ -43,7 +43,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-10">
           {[
             { to: "/",        label: "HOME"     },
-            { to: "/services",label: "SERVICES" },
+            { to: "/services",label: servicesLabel },
             { to: "/about",   label: "ABOUT"    },
             { to: "/gallery", label: "GALLERY"  },
             { to: "/contact", label: "CONTACT"  },
@@ -94,7 +94,7 @@ export default function Navbar() {
               </div>
               {/* Navigation Items (Text Pills) */}
               <MenuItem href="/">Home</MenuItem>
-              <MenuItem href="/services">Services</MenuItem>
+              <MenuItem href="/services">{servicesLabel === "OUR MENU" ? "Our Menu" : "Services"}</MenuItem>
               <MenuItem href="/about">About</MenuItem>
               <MenuItem href="/gallery">Gallery</MenuItem>
               <MenuItem href="/contact">Contact</MenuItem>

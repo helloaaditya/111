@@ -5,6 +5,7 @@ import Footer from '../ui/Footer';
 
 export default function PageLayout() {
   const { pathname, hash } = useLocation();
+  const isServicesPage = pathname === "/services";
 
   // Scroll to top or specific element on route/hash change
   useEffect(() => {
@@ -24,11 +25,11 @@ export default function PageLayout() {
 
   return (
     <div className="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen flex flex-col">
-      <Navbar />
+      <Navbar servicesLabel={isServicesPage ? "OUR MENU" : "SERVICES"} />
       <main className="flex-grow pt-24 md:pt-32 pb-16">
         <Outlet />
       </main>
-      <Footer />
+      <Footer servicesLabel={isServicesPage ? "OUR MENU" : "TREATMENTS"} />
     </div>
   );
 }
