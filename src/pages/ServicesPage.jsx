@@ -4,7 +4,7 @@ import * as React from "react"
 import { SPA_SERVICES } from "../data/spaServices"
 
 const WHATSAPP_BOOKING_LINK =
-  "https://wa.me/919133497000?text=Hi%2C%20I%20want%20to%20book%20an%20appointment%20at%20Aura%20International%20Thai%20Spa"
+  "https://wa.me/916364944762?text=Hi%2C%20I%20want%20to%20book%20an%20appointment%20at%20Aura%20International%20Thai%20Spa"
 
 const IMAGE_OVERRIDES = {
   "water-hydro-therapy-room": "/images/banners/WATER%20HYDRO%20THERAPY%20ROOM.png",
